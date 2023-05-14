@@ -1,22 +1,32 @@
 import { StyleSheet } from 'react-native';
 import Main from './assets/3D/main';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './src/screens/HomeScreen';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
 
 const Stack = createNativeStackNavigator();
+const Tab = createMaterialBottomTabNavigator();
 
 export default function App() {
   return (
-      <NavigationContainer>
-      <Stack.Navigator initialRouteName='Home'>
-        <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{title: 'Welcome'}}
-        />
-        {/* <Stack.Screen name="Main" component={Main} /> */}
-      </Stack.Navigator>
+    <NavigationContainer>
+      <Tab.Navigator
+        initialRouteName="Home"
+        activeColor="#f0edf6"
+        inactiveColor="#3e2465"
+        barStyle={{ backgroundColor: '#694fad' }}
+      >
+        <Tab.Screen options={{
+          tabBarLabel: 'Ticket',
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="account" color={color} size={26} />
+          ),
+        }} name="Home" component={HomeScreen} />
+        {/* <Tab.Screen name="Settings" component={SettingsScreen} /> */}
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
