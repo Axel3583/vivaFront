@@ -1,47 +1,53 @@
-import { StyleSheet } from 'react-native';
-import Main from './assets/3D/main';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import HomeScreen from './src/screens/homeScreen';
-import ScannerForm from './src/screens/scanneScreen';
+import React from "react";
+import { StyleSheet, ImageBackground } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import HomeScreen from "./src/screens/homeScreen";
+import ScannerForm from "./src/screens/scanneScreen";
+import BackgroundImage from "../vivaFront/assets/background.png";
 
-
-const Stack = createNativeStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Tab.Navigator
-        initialRouteName="home"
-        activeColor="#f0edf6"
-        inactiveColor="#3e2465"
-        barStyle={{ backgroundColor: '#694fad' }} >
-
-        <Tab.Screen options={{
-          tabBarLabel: '',
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="ticket" color={color} size={26} />),
-        }} name="Home" component={HomeScreen} />
-
-        <Tab.Screen options={{
-          tabBarLabel: '',
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="home" color={color} size={26} />),
-        }} name="Scanne" component={ScannerForm} />
-        {/* <Tab.Screen name="Settings" component={SettingsScreen} /> */}
-      </Tab.Navigator>
-    </NavigationContainer>
-    );
+    <ImageBackground source={BackgroundImage} style={styles.background}>
+      <NavigationContainer>
+        <Tab.Navigator
+          initialRouteName="Home"
+          activeColor="#F5A229"
+          inactiveColor="black"
+          barStyle={{ backgroundColor: "#FAFAF8" }}
+        >
+          <Tab.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{
+              tabBarLabel: "Home",
+              tabBarIcon: ({ color }) => (
+                <MaterialCommunityIcons name="home" color={color} size={26} />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="Scanner"
+            component={ScannerForm}
+            options={{
+              tabBarLabel: "Ticket",
+              tabBarIcon: ({ color }) => (
+                <MaterialCommunityIcons name="ticket" color={color} size={26} />
+              ),
+            }}
+          />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </ImageBackground>
+  );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  background: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    resizeMode: "cover",
   },
 });

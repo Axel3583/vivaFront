@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, View, TouchableOpacity, Text } from "react-native";
+import {
+  StyleSheet,
+  View,
+  TouchableOpacity,
+  Text,
+  ImageBackground,
+} from "react-native";
 import { Camera } from "expo-camera";
 import { BarCodeScanner } from "expo-barcode-scanner";
 
@@ -32,28 +38,28 @@ const CameraScanner = ({ handleBarCodeScanned, handleGoBack }) => {
   }
 
   return (
-    <View style={styles.container}>
-      {scanned ? (
-        <View>
-          <TouchableOpacity style={styles.button} onPress={handleScanAgain}>
-            <Text style={styles.buttonText}>Scan again</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={handleGoBack}>
-            <Text style={styles.buttonText}>Cancel</Text>
-          </TouchableOpacity>
-        </View>
-      ) : (
-        <>
-          <Camera
-            style={styles.camera}
-            onBarCodeScanned={handleBarCodeScannedInternal}
-          />
-          <TouchableOpacity style={styles.button} onPress={handleGoBack}>
-            <Text style={styles.buttonText}>Cancel</Text>
-          </TouchableOpacity>
-        </>
-      )}
-    </View>
+      <View style={styles.container}>
+        {scanned ? (
+          <View>
+            <TouchableOpacity style={styles.button} onPress={handleScanAgain}>
+              <Text style={styles.buttonText}>Scan again</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={handleGoBack}>
+              <Text style={styles.buttonText}>Cancel</Text>
+            </TouchableOpacity>
+          </View>
+        ) : (
+          <>
+            <Camera
+              style={styles.camera}
+              onBarCodeScanned={handleBarCodeScannedInternal}
+            />
+            <TouchableOpacity style={styles.button} onPress={handleGoBack}>
+              <Text style={styles.buttonText}>Cancel</Text>
+            </TouchableOpacity>
+          </>
+        )}
+      </View>
   );
 };
 
@@ -68,7 +74,7 @@ const styles = StyleSheet.create({
     aspectRatio: 1,
   },
   button: {
-    backgroundColor: "#3498db",
+    backgroundColor: "#F5A229",
     padding: 10,
     borderRadius: 5,
     marginTop: 10,

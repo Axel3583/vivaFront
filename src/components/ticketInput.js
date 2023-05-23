@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     maxWidth: "90%",
   },
   button: {
-    backgroundColor: "#3498db",
+    backgroundColor: "#F5A229",
     padding: 10,
     borderRadius: 5,
     marginHorizontal: 5,

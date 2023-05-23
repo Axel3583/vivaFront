@@ -32,22 +32,27 @@ export default function ScannerForm() {
     setShowInput(true);
     setShowCamera(false);
   };
-
-  const handleGoBack = () => {
+  const handleCancelPress = () => {
     setShowCamera(false);
     setShowInput(false);
+  };
+  const handleGoBack = () => {
+    handleCancelPress();
   };
 
   return (
     <View style={styles.container}>
       {showCamera ? (
-        <CameraScanner handleBarCodeScanned={handleBarCodeScanned} />
+        <CameraScanner
+          handleBarCodeScanned={handleBarCodeScanned}
+          handleGoBack={handleCancelPress}
+        />
       ) : showInput ? (
         <TicketInput
           ticketCode={ticketCode}
           handleTicketCodeChange={handleTicketCodeChange}
           handleTicketCodeSubmit={handleTicketCodeSubmit}
-          handleGoBack={handleGoBack}
+          handleGoBack={handleCancelPress}
         />
       ) : (
         <View style={styles.buttonContainer}>
@@ -77,7 +82,7 @@ const styles = StyleSheet.create({
     maxWidth: "90%",
   },
   button: {
-    backgroundColor: "#3498db",
+    backgroundColor: "#F5A229",
     padding: 10,
     borderRadius: 5,
     marginHorizontal: 5,
