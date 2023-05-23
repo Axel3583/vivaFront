@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './src/screens/HomeScreen';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
+import ScanneScreen from './src/screens/ScanneScreen';
 
 const Stack = createNativeStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
@@ -14,15 +14,22 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator
-        initialRouteName="Home"
+        initialRouteName="Scanne"
         activeColor="#f0edf6"
         inactiveColor="#3e2465"
         barStyle={{ backgroundColor: '#694fad' }}
       >
+
         <Tab.Screen options={{
-          tabBarLabel: 'Ticket',
+          tabBarLabel: '',
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="account" color={color} size={26} />
+            <MaterialCommunityIcons name="ticket" color={color} size={26} />
+          ),
+        }} name="Scanne" component={ScanneScreen} />
+        <Tab.Screen options={{
+          tabBarLabel: '',
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="home" color={color} size={26} />
           ),
         }} name="Home" component={HomeScreen} />
         {/* <Tab.Screen name="Settings" component={SettingsScreen} /> */}
