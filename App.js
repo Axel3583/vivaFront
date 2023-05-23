@@ -2,9 +2,11 @@ import { StyleSheet } from 'react-native';
 import Main from './assets/3D/main';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import HomeScreen from './src/screens/HomeScreen';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import HomeScreen from './src/screens/homeScreen';
+import ScannerForm from './src/screens/scanneScreen';
+
 
 const Stack = createNativeStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
@@ -24,11 +26,11 @@ export default function App() {
             <MaterialCommunityIcons name="ticket" color={color} size={26} />),
         }} name="Home" component={HomeScreen} />
 
-        {/* <Tab.Screen options={{
+        <Tab.Screen options={{
           tabBarLabel: '',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="home" color={color} size={26} />),
-        }} name="Home" component={HomeScreen} /> */}
+        }} name="Scanne" component={ScannerForm} />
         {/* <Tab.Screen name="Settings" component={SettingsScreen} /> */}
       </Tab.Navigator>
     </NavigationContainer>
