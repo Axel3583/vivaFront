@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { StyleSheet, View, TouchableOpacity, Text, Alert } from "react-native";
 import CameraScanner from "../components/cameraScanner";
 import TicketInput from "../components/ticketInput";
+import UploadTicket from "../components/uploadTicket";
+import { Ionicons } from '@expo/vector-icons'; 
 
 export default function ScannerForm() {
   const [showCamera, setShowCamera] = useState(false);
@@ -39,7 +41,11 @@ export default function ScannerForm() {
   };
 
   return (
+
     <View style={styles.container}>
+
+      <UploadTicket/>
+
       {showCamera ? (
         <CameraScanner handleBarCodeScanned={handleBarCodeScanned} />
       ) : showInput ? (
@@ -52,7 +58,8 @@ export default function ScannerForm() {
       ) : (
         <View style={styles.buttonContainer}>
           <TouchableOpacity style={styles.button} onPress={handleCameraPress}>
-            <Text style={styles.buttonText}>Scanner un QR code</Text>
+            {/* <Text style={styles.buttonText}>Scanner un QR code</Text> */}
+            <Ionicons name="qr-code" size={50} color="black" />
           </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={handleInputPress}>
             <Text style={styles.buttonText}>Entrer le code du ticket</Text>
@@ -86,5 +93,6 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontWeight: "bold",
     textAlign: "center",
+    fontFamily: 'MuseoSans_500'
   },
 });
