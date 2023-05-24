@@ -21,7 +21,7 @@ console.log(files)
 
   return (
     <View style={styles.container}>
-        <Text style={styles.title}>Upload ticket</Text>
+        <Text style={styles.title}>Télécharger un ticket</Text>
         <FileUpload files={files} setFiles={setFiles} removeFile={removeFile}/>
         <FileList files={files} removeFile={removeFile}/>
     </View>

@@ -26,7 +26,7 @@ const TicketInput = ({
           style={styles.button}
           onPress={handleTicketCodeSubmit}
         >
-          <Text style={styles.buttonText}>Submit</Text>
+          <Text style={styles.buttonText}>Envoyer</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={handleGoBack}>
           <Text style={styles.buttonText}>Retour</Text>
@@ -61,15 +61,15 @@ const styles = StyleSheet.create({
     maxWidth: "90%",
   },
   button: {
-    backgroundColor: "#3498db",
+    backgroundColor: "#f55e30",
     padding: 10,
     borderRadius: 5,
     marginHorizontal: 5,
   },
   buttonText: {
-    color: "#fff",
     fontWeight: "bold",
     textAlign: "center",
+    fontFamily: 'MuseoSans_500'
   },
 });
 
