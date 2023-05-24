@@ -2,16 +2,22 @@ import React, { useState } from "react";
 import { StyleSheet, View, TouchableOpacity, Text, Alert } from "react-native";
 import CameraScanner from "../components/cameraScanner";
 import TicketInput from "../components/ticketInput";
+import TicketDownloader from "../components/TicketDownloader";
+import { Card } from "react-native-elements";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 export default function ScannerForm() {
   const [showCamera, setShowCamera] = useState(false);
   const [showInput, setShowInput] = useState(false);
   const [ticketCode, setTicketCode] = useState("");
+  const [ticketUrl, setTicketUrl] = useState("");
+  const [showTicketDownloader, setShowTicketDownloader] = useState(false);
 
   const handleBarCodeScanned = ({ type, data }) => {
     setShowCamera(false);
     setShowInput(false);
     setTicketCode(data);
+    setTicketUrl("https://drive.google.com/drive/my-drive");
     Alert.alert(`Scanned data: ${data}`);
   };
 
@@ -32,12 +38,20 @@ export default function ScannerForm() {
     setShowInput(true);
     setShowCamera(false);
   };
+
   const handleCancelPress = () => {
     setShowCamera(false);
     setShowInput(false);
+    setShowTicketDownloader(false);
   };
+
   const handleGoBack = () => {
     handleCancelPress();
+  };
+
+  const handleTicketDownload = () => {
+    setTicketUrl("https://drive.google.com/drive/my-drive");
+    setShowTicketDownloader(true);
   };
 
   return (
@@ -54,14 +68,50 @@ export default function ScannerForm() {
           handleTicketCodeSubmit={handleTicketCodeSubmit}
           handleGoBack={handleCancelPress}
         />
+      ) : showTicketDownloader && ticketUrl ? (
+        <TicketDownloader
+          ticketUrl={ticketUrl}
+          handleGoBack={handleCancelPress}
+        />
       ) : (
         <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button} onPress={handleCameraPress}>
-            <Text style={styles.buttonText}>Scanner un QR code</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={handleInputPress}>
-            <Text style={styles.buttonText}>Entrer le code du ticket</Text>
-          </TouchableOpacity>
+          <Card containerStyle={styles.card}>
+            <TouchableOpacity style={styles.button} onPress={handleCameraPress}>
+              <View style={styles.iconContainer}>
+                <Icon
+                  name="qrcode"
+                  size={20}
+                  color="black"
+                  style={styles.icon}
+                />
+              </View>
+              <Text style={styles.buttonText}>Scanner un QR code</Text>
+            </TouchableOpacity>
+          </Card>
+          <Card containerStyle={styles.card}>
+            <TouchableOpacity style={styles.button} onPress={handleInputPress}>
+              <View style={styles.iconContainer}>
+                <Icon name="edit" size={20} color="black" style={styles.icon} />
+              </View>
+              <Text style={styles.buttonText}>Entrer le code du ticket</Text>
+            </TouchableOpacity>
+          </Card>
+          <Card containerStyle={styles.card}>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={handleTicketDownload}
+            >
+              <View style={styles.iconContainer}>
+                <Icon
+                  name="download"
+                  size={20}
+                  color="black"
+                  style={styles.icon}
+                />
+              </View>
+              <Text style={styles.buttonText}>Télécharger le ticket</Text>
+            </TouchableOpacity>
+          </Card>
         </View>
       )}
     </View>
@@ -73,13 +123,22 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "#ecf0f1",
   },
   buttonContainer: {
-    flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
     marginBottom: 20,
-    maxWidth: "90%",
+    width: "90%",
+  },
+  card: {
+    width: "100%",
+    marginBottom: 10,
+    borderRadius: 5,
+    borderColor: "#fff",
+    borderWidth: 1,
+    backgroundColor: "#ffffff",
+    elevation: 3,
   },
   button: {
     backgroundColor: "#F5A229",
@@ -88,8 +147,17 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
   },
   buttonText: {
-    color: "#fff",
+    color: "black",
     fontWeight: "bold",
     textAlign: "center",
+    marginRight: 2,
+  },
+  iconContainer: {
+    marginRight: 5,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  icon: {
+    marginRight: 5,
   },
 });
