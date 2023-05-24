@@ -14,13 +14,13 @@ function TabNavigator() {
   return (
     <Tab.Navigator
       initialRouteName="Scanne"
-      activeColor="#f0edf6"
+      activeColor="#f55e30"
       inactiveColor="#3e2465"
-      barStyle={{ backgroundColor: '#f15700' }} >
+      barStyle={{ backgroundColor: '#FAF9F7' }} >
 
       <Tab.Screen
         options={{
-          tabBarLabel: '',
+          tabBarLabel: 'Ticket',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="ticket" color={color} size={26} />),
         }}
@@ -30,7 +30,7 @@ function TabNavigator() {
 
       <Tab.Screen
         options={{
-          tabBarLabel: '',
+          tabBarLabel: 'Home',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="home" color={color} size={26} />),
         }}

@@ -39,7 +39,7 @@ const CameraScanner = ({ handleBarCodeScanned, handleGoBack }) => {
             <Text style={styles.buttonText}>Scan again</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={handleGoBack}>
-            <Text style={styles.buttonText}>Cancel</Text>
+            <Text style={styles.buttonText}>Retour</Text>
           </TouchableOpacity>
         </View>
       ) : (
@@ -68,15 +68,15 @@ const styles = StyleSheet.create({
     aspectRatio: 1,
   },
   button: {
-    backgroundColor: "#3498db",
+    backgroundColor: "#f55e30",
     padding: 10,
     borderRadius: 5,
     marginTop: 10,
   },
   buttonText: {
-    color: "#fff",
     fontWeight: "bold",
     textAlign: "center",
+    fontFamily: 'MuseoSans_500'
   },
 });
 

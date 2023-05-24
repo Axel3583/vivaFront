@@ -13,14 +13,14 @@ export default function FileList({ files, removeFile }) {
     }
     return (
         <View>
-            <ul>
+            {/* <ul>
                 {
                     files && files.map(f => <FileItem
                         key={f.name}
                         file={f}
                         deleteFile={deleteFileHandeler} />)
                 }
-            </ul>
+            </ul> */}
         </View>
     )
 }

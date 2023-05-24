@@ -33,15 +33,15 @@ export default function FileUpload({ files, setFiles, removeFile }) {
     return (
         <View style={styles.container}>
             <View style={styles.fileInput}>
-                <input style={styles.fileInputInput} type='file'
-                onChange={uploadHandler} />
+                {/* <input style={styles.fileInputInput} type='file'
+                onChange={uploadHandler} /> */}
                 <View style={styles.button}>
                     <AntDesign name="addfile" style={styles.icon} />
                     {/* <Text style={styles.buttonText}>Upload</Text> */}
                 </View>
             </View>
-            <Text style={styles.supportText}>Support files</Text>
-            <Text style={styles.fileTypes}>PDF, JPG, PNG, SVG</Text>
+            <Text style={styles.supportText}>Format accepté</Text>
+            <Text style={styles.fileTypes}>PDF, JPG, PNG</Text>
         </View>
     )
 }
