@@ -4,7 +4,6 @@ import FileUpload from './fileUpload';
 import FileList from './FileList';
 // import { Card as ScannerCard, Text } from '@blueromans/react-native-ui-kit';
 
-
 export default function CardUpload() {
 //   const fileInputState = {
 //     value: { name: 'example.pdf' } // Remplacez cette valeur par l'état réel de votre fichier
@@ -34,7 +33,6 @@ console.log(files)
 
 const styles = StyleSheet.create({
     container: {
-      
     },
     title: {
       fontWeight: 'bold',

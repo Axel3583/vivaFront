@@ -20,12 +20,14 @@ export default function ScannerForm() {
   const [ticketCode, setTicketCode] = useState("");
   const [ticketUrl, setTicketUrl] = useState("");
   const [showTicketDownloader, setShowTicketDownloader] = useState(false);
+  const [isCardSelected, setIsCardSelected] = useState(false);
 
   const handleBarCodeScanned = ({ type, data }) => {
     setShowCamera(false);
     setShowInput(false);
     setTicketCode(data);
     Alert.alert(`Scanned data: ${data}`);
+    setIsCardSelected(true);
   };
 
   const handleTicketCodeChange = (text) => {
@@ -34,34 +36,41 @@ export default function ScannerForm() {
 
   const handleTicketCodeSubmit = () => {
     Alert.alert(`Ticket code: ${ticketCode}`);
+    setIsCardSelected(true);
   };
 
   const handleCameraPress = () => {
     setShowCamera(true);
     setShowInput(false);
+    setIsCardSelected(false);
   };
 
   const handleInputPress = () => {
     setShowInput(true);
     setShowCamera(false);
+    setIsCardSelected(false);
   };
 
   const handleCancelPress = () => {
     setShowCamera(false);
     setShowInput(false);
     setShowTicketDownloader(false);
+    setIsCardSelected(false);
   };
 
   const handleGoBack = () => {
     setShowCamera(false);
     setShowInput(false);
+    setIsCardSelected(false);
   };
 
   return (
     <View style={styles.container}>
-      <View>
-        <UploadTicket />
-      </View>
+      {!isCardSelected && !showInput && !showCamera && (
+        <View>
+          <UploadTicket />
+        </View>
+      )}
 
       <View style={styles.container}>
         {showCamera ? (
@@ -116,6 +125,8 @@ export default function ScannerForm() {
     </View>
   );
 }
+
+
 
 const { width, height } = Dimensions.get("window");
 const styles = StyleSheet.create({
