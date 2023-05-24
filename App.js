@@ -7,6 +7,10 @@ import ScannerForm from './src/screens/scanneScreen';
 import AppIntro from './src/components/appIntroSlider';
 import * as Font from 'expo-font';
 import { StyleSheet, ActivityIndicator, Animated, View, Image } from 'react-native';
+import {
+  SafeAreaProvider,
+  initialWindowMetrics,
+} from 'react-native-safe-area-context';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -53,19 +57,19 @@ export default class App extends React.Component {
       'MuseoSans_500': require('./assets/fonts/MuseoSans_500.otf'),
       'MuseoSans_700': require('./assets/fonts/MuseoSans_700.otf'),
       'MuseoSans_900': require('./assets/fonts/MuseoSans_900.otf'),
-      'MuseoSans_100': require('./assets/fonts/MuseoSans-100.otf'), 
+      'MuseoSans_100': require('./assets/fonts/MuseoSans-100.otf'),
     });
   };
 
   componentDidMount() {
     this.loadFonts();
   }
-  
+
   loadFonts = async () => {
     await this.fetchFonts();
     this.setState({ fontLoaded: true });
   };
-  
+
 
   handleDone = () => {
     this.setState({ isLoading: true });
@@ -83,25 +87,27 @@ export default class App extends React.Component {
 
     return (
       <NavigationContainer>
-        {isLoading ? 
-          (fontLoaded ?
-            <View style={{
-              flex: 1,
-              justifyContent: 'center',
-              alignItems: 'center',
-              backgroundColor: '#f15700'
-            }}>
-              <Image
-                source={require('./assets/image/10.png')}
-                style={{ width: 200, height: 100 }}
-              />
-            </View>
-          : null)
-        : showIntro ? (
-          <AppIntro handleDone={this.handleDone} />
-        ) : (
-          <TabNavigator />
-        )}
+        <SafeAreaProvider initialMetrics={initialWindowMetrics}>
+          {isLoading ?
+            (fontLoaded ?
+              <View style={{
+                flex: 1,
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: '#f15700'
+              }}>
+                <Image
+                  source={require('./assets/image/10.png')}
+                  style={{ width: 200, height: 100 }}
+                />
+              </View>
+              : null)
+            : showIntro ? (
+              <AppIntro handleDone={this.handleDone} />
+            ) : (
+              <TabNavigator />
+            )}
+        </SafeAreaProvider>
       </NavigationContainer>
     );
   }

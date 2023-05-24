@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, FlatList } from 'react-native'
 import React from 'react'
 import FileItem from './FileItem'
 
@@ -12,15 +12,23 @@ export default function FileList({ files, removeFile }) {
         removeFile(_name);
     }
     return (
-        <View>
-            {/* <ul>
-                {
-                    files && files.map(f => <FileItem
-                        key={f.name}
-                        file={f}
-                        deleteFile={deleteFileHandeler} />)
-                }
-            </ul> */}
-        </View>
+        <View style={styles.container}>
+        <FlatList
+          data={files}
+          keyExtractor={(item) => item.name}
+          renderItem={({ item }) => (
+            <FileItem file={item} deleteFile={deleteFileHandeler} />
+          )}
+        />
+      </View>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        paddingTop: 15
+    }
+})
