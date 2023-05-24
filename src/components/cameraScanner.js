@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  StyleSheet,
-  View,
-  TouchableOpacity,
-  Text,
-  ImageBackground,
-} from "react-native";
+import { StyleSheet, View, TouchableOpacity, Text } from "react-native";
 import { Camera } from "expo-camera";
 import { BarCodeScanner } from "expo-barcode-scanner";
 
@@ -38,28 +32,28 @@ const CameraScanner = ({ handleBarCodeScanned, handleGoBack }) => {
   }
 
   return (
-      <View style={styles.container}>
-        {scanned ? (
-          <View>
-            <TouchableOpacity style={styles.button} onPress={handleScanAgain}>
-              <Text style={styles.buttonText}>Scan again</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={handleGoBack}>
-              <Text style={styles.buttonText}>Cancel</Text>
-            </TouchableOpacity>
-          </View>
-        ) : (
-          <>
-            <Camera
-              style={styles.camera}
-              onBarCodeScanned={handleBarCodeScannedInternal}
-            />
-            <TouchableOpacity style={styles.button} onPress={handleGoBack}>
-              <Text style={styles.buttonText}>Cancel</Text>
-            </TouchableOpacity>
-          </>
-        )}
-      </View>
+    <View style={styles.container}>
+      {scanned ? (
+        <View>
+          <TouchableOpacity style={styles.button} onPress={handleScanAgain}>
+            <Text style={styles.buttonText}>Scan again</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={handleGoBack}>
+            <Text style={styles.buttonText}>Cancel</Text>
+          </TouchableOpacity>
+        </View>
+      ) : (
+        <>
+          <Camera
+            style={styles.camera}
+            onBarCodeScanned={handleBarCodeScannedInternal}
+          />
+          <TouchableOpacity style={styles.button} onPress={handleGoBack}>
+            <Text style={styles.buttonText}>Cancel</Text>
+          </TouchableOpacity>
+        </>
+      )}
+    </View>
   );
 };
 
