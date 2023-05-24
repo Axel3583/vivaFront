@@ -5,6 +5,8 @@ import TicketInput from "../components/ticketInput";
 import TicketDownloader from "../components/TicketDownloader";
 import { Card } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
+import UploadTicket from "../components/uploadTicket";
+import { Ionicons } from '@expo/vector-icons'; 
 
 export default function ScannerForm() {
   const [showCamera, setShowCamera] = useState(false);
@@ -55,7 +57,11 @@ export default function ScannerForm() {
   };
 
   return (
+
     <View style={styles.container}>
+
+      <UploadTicket/>
+
       {showCamera ? (
         <CameraScanner
           handleBarCodeScanned={handleBarCodeScanned}
@@ -150,6 +156,7 @@ const styles = StyleSheet.create({
     color: "black",
     fontWeight: "bold",
     textAlign: "center",
+    fontFamily: 'MuseoSans_500',
     marginRight: 2,
   },
   iconContainer: {
