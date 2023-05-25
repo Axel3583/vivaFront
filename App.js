@@ -45,7 +45,7 @@ function TabNavigator() {
         component={ScannerForm}
       />
 
-      {isValidTicket ? (
+      {!misValidTicket ? (
         <Tab.Screen
           options={{
             tabBarLabel: 'Home',

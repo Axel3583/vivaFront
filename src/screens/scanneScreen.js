@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from 'axios';
+import axios from "axios";
 import {
   StyleSheet,
   View,
@@ -7,7 +7,7 @@ import {
   Text,
   Alert,
   Dimensions,
-  ImageBackground 
+  ImageBackground,
 } from "react-native";
 import CameraScanner from "../components/cameraScanner";
 import TicketInput from "../components/ticketInput";
@@ -15,10 +15,9 @@ import UploadTicket from "../components/uploadTicket";
 import { Ionicons } from "@expo/vector-icons";
 import { Card } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { useNavigation } from '@react-navigation/native';
-
+import { useNavigation } from "@react-navigation/native";
+import backgroundImage from "../../assets/image/backg.png";
 export default function ScannerForm() {
-
   const navigation = useNavigation();
 
   const [showCamera, setShowCamera] = useState(false);
@@ -38,12 +37,12 @@ export default function ScannerForm() {
   // };
 
   const handleTicketCodeChange = (value) => {
-    console.log(value)
+    console.log(value);
     setTicketCode(value);
   };
 
   const handleTicketCodeSubmit = async () => {
-    console.log('ok')
+    console.log("ok");
     if (!isValidTicketCodeFormat(ticketCode)) {
       Alert.alert(
         "Format de ticket invalide",
@@ -51,22 +50,25 @@ export default function ScannerForm() {
         [
           {
             text: "OK",
-            onPress: () => console.log("OK Pressed")
-          }
+            onPress: () => console.log("OK Pressed"),
+          },
         ]
       );
-      return; 
+      return;
     }
 
     try {
-      const response = await axios.post('http://localhost:3000/tickets/check-validity?code', {
-        ticketCode: ticketCode
-      });
+      const response = await axios.post(
+        "http://localhost:3000/tickets/check-validity?code",
+        {
+          ticketCode: ticketCode,
+        }
+      );
 
       if (response.status === 200) {
         // Handle success here
         console.log(response.data);
-        navigation.navigate('Home');
+        navigation.navigate("Home");
       } else {
         // Handle error here
         Alert.alert(
@@ -75,13 +77,13 @@ export default function ScannerForm() {
           [
             {
               text: "OK",
-              onPress: () => console.log("OK Pressed")
-            }
+              onPress: () => console.log("OK Pressed"),
+            },
           ]
         );
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error:", error);
     }
   };
 
@@ -96,7 +98,7 @@ export default function ScannerForm() {
   };
 
   const handleInputPress = () => {
-    setisCardSelected(false)
+    setisCardSelected(false);
     setShowInput(true);
     setShowCamera(false);
   };
@@ -104,7 +106,6 @@ export default function ScannerForm() {
   const handleCancelPress = () => {
     setShowCamera(false);
     setShowInput(false);
-
   };
 
   const handleGoBack = () => {
@@ -113,9 +114,8 @@ export default function ScannerForm() {
   };
 
   return (
-    <View style={styles.container}>
-      <ImageBackground>
-
+    <View style={styles.containerParent}>
+      <View style={styles.container}>
         {!isCardSelected && !showInput && !showCamera && (
           <View>
             <UploadTicket />
@@ -167,34 +167,42 @@ export default function ScannerForm() {
                       style={styles.icon}
                     />
                   </View>
-                  <Text style={styles.buttonText}>Entrer le code du ticket</Text>
+                  <Text style={styles.buttonText}>
+                    Entrer le code du ticket
+                  </Text>
                 </TouchableOpacity>
               </Card>
             </View>
           )}
         </View>
-      </ImageBackground>
-
+      </View>
     </View>
   );
 }
 
-const { width, height } = Dimensions.get("window");
 const styles = StyleSheet.create({
+  containerParent: {
+    flex: 1,
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    justifyContent: "center",
+    flexDirection: "column",
+  },
   container: {
     flex: 1,
     justifyContent: "center",
     flexDirection: "colum",
-    backgroundColor: '#FAF9F7'
+    // backgroundColor: "#FAF9F7",
   },
   buttonContainer: {
     flexDirection: "colum",
   },
   backgroundImage: {
     flex: 1,
-    width: '100%',
-    height: '100%',
-    resizeMode: 'cover',
+    width: "100%",
+    height: "100%",
+    resizeMode: "cover",
   },
   button: {
     backgroundColor: "#FAF9F7",
@@ -203,7 +211,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
   },
   buttonText: {
-    color: '#E47B24',
+    color: "black",
     fontWeight: "bold",
     textAlign: "center",
     fontSize: 17,
@@ -225,12 +233,12 @@ const styles = StyleSheet.create({
     borderColor: "#fff",
     borderWidth: 1,
     backgroundColor: "#FAF9F7",
-    shadowColor: '#000', // Couleur de l'ombre
+    shadowColor: "#000", // Couleur de l'ombre
     shadowOffset: {
-        width: 0,
-        height: 2,
+      width: 0,
+      height: 2,
     },
     shadowOpacity: 0.25,
-    shadowRadius: 4
-  }
-})
+    shadowRadius: 4,
+  },
+});
