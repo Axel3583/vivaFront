@@ -111,7 +111,7 @@ export default class App extends React.Component {
                 flex: 1,
                 justifyContent: 'center',
                 alignItems: 'center',
-                backgroundColor: '#cd5c5c'
+                backgroundColor: '#E47B24'
               }}>
                 <Image
                   source={require('./assets/image/10.png')}

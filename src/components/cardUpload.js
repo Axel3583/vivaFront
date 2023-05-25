@@ -36,9 +36,9 @@ const styles = StyleSheet.create({
     },
     title: {
       fontWeight: 'bold',
-      marginBottom: '1em',
-      fontSize: '1.2rem',
-      color: '#fff',
+      marginBottom: 30,
+      fontSize: 20,
+      color: '#E47B24',
       fontFamily: 'MuseoSans_900'
     }
 })

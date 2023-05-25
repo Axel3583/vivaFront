@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     flexDirection: "colum",
-    backgroundColor: '#6E3B11'
+    backgroundColor: '#FAF9F7'
   },
   buttonContainer: {
     flexDirection: "colum",
@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
   button: {
-    backgroundColor: "#fff",
+    backgroundColor: "#FAF9F7",
     padding: 5,
     borderRadius: 5,
     marginHorizontal: 5,
@@ -224,12 +224,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderColor: "#fff",
     borderWidth: 1,
-    backgroundColor: "#fff",
-    shadowColor: '#BB3937', // Couleur de l'ombre
-        shadowOffset: {
-            width: 0,
-            height: 1,
-        },
-        elevation: 3,
-  },
-});
+    backgroundColor: "#FAF9F7",
+    shadowColor: '#000', // Couleur de l'ombre
+    shadowOffset: {
+        width: 0,
+        height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4
+  }
+})

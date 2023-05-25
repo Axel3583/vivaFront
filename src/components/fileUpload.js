@@ -81,7 +81,7 @@ export default function FileUpload({ files, setFiles, removeFile }) {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#E47B24',
+        backgroundColor: '#FAF9F7',
         borderRadius: 3,
         padding: width < 380 ? 10 : 16,
         minWidth: 280,
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#fff',
+        backgroundColor: '#E47B24',
         borderRadius: 4,
         width: width / 2,
         height: 50,
@@ -130,19 +130,19 @@ const styles = StyleSheet.create({
     },
     icon: {
         fontSize: 24,
-        color:"#E47B24",
+        color:"#fff",
         marginRight: width < 380 ? 6 : 8
     },
     supportText: {
         fontSize: width < 380 ? 14 : 16,
         marginTop: width < 380 ? 10 : 12,
         fontFamily: 'MuseoSans_700',
-        color: '#fff',
+        color: '#E47B24',
     },
     fileTypes: {
         fontSize: width < 380 ? 14 : 16,
         marginTop: width < 380 ? 5 : 8,
         fontFamily: 'MuseoSans_500',
-        color: '#fff',
+        color: '#E47B24',
     }
 });

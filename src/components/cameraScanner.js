@@ -22,7 +22,7 @@ export default function CameraScanner({ handleGoBack }){
   };
 
   const handleBarCodeScannedInternal = ({ data }) => {
-    console.log(data)
+    console.log(data, 'Coordonées code Qr')
     setScanned(true);
     setScannedUrl(data);
   };
@@ -35,7 +35,7 @@ export default function CameraScanner({ handleGoBack }){
     return <Text style={{
       flex: 1,
       justifyContent: 'center',
-      alignContent: 'center'
+      alignItems: 'center'
     }}>No access to camera</Text>;
   }
 
