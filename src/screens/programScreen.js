@@ -106,13 +106,7 @@ export default function ProgramScreen() {
                                     <Text style={styles.firstTitleText}>(Un)Expected Trends: Digging into Deeptech</Text>
                                     <Text style={styles.societyText}>DeepTech</Text>
                                 </LinearGradient>
-                                <LinearGradient
-                                    colors={['#5508a0', '#a1009b']}
-                                    start={{ x: 0, y: 0 }}
-                                    end={{ x: 1, y: 1 }}
-                                    angle={45}
-                                    style={styles.imageContainer}
-                                >
+                                <View style={styles.imageContainer}>
                                     <View style={styles.circleImageContainer}>
                                         <Image
                                             source={require("../../assets/image/p1.png")}
@@ -123,7 +117,7 @@ export default function ProgramScreen() {
                                         <Text style={styles.nameText}>Anne-Sophie CARRESE</Text>
                                         <Text style={styles.jobText}>Partner (ELAIA PARTNERS)</Text>
                                     </View>
-                                </LinearGradient>
+                                </View>
                             </View>
                             <View style={styles.block}>
                                 <Text>Wednesday 14 - Column A - Block 2</Text>
@@ -191,10 +185,15 @@ const styles = StyleSheet.create({
         // alignItems: "center",
     },
     block: {
-        backgroundColor: "lightblue",
+        backgroundColor: "white",
         marginVertical: 10,
         padding: 10,
         borderRadius: 5,
+        shadowColor: "#ff0081",
+        shadowOffset: { width: 0, height: 0 },
+        shadowOpacity: 0.3,
+        shadowRadius: 34,
+        elevation: 5,
     },
     sessionDateContainer: {
         flexDirection: "row",
@@ -214,7 +213,7 @@ const styles = StyleSheet.create({
     },
     imageContainer: {
         justifyContent: "space-between",
-        backgroundColor: "yellow",
+        backgroundColor: "white",
         padding: 10,
         borderWidth: 1,
         borderColor: "lightgray",
@@ -236,7 +235,7 @@ const styles = StyleSheet.create({
     nameText: {
         fontWeight: "bold",
         fontSize: 16,
-        color: "white",
+        color: "black",
     },
     jobText: {
         color: "gray",
@@ -282,7 +281,7 @@ const styles = StyleSheet.create({
         color: 'white',
         lineHeight: 20,
     },
-    societyText:{
+    societyText: {
         color: 'gray',
     }
 });
