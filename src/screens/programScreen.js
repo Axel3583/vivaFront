@@ -8,7 +8,7 @@ import {
     Dimensions,
 } from "react-native";
 
-import LinearGradient from "react-native-linear-gradient";
+import { LinearGradient } from 'expo-linear-gradient';
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -76,25 +76,43 @@ export default function ProgramScreen() {
                     <View style={styles.columnsContainer}>
                         <View style={styles.column}>
                             <View style={styles.block}>
-                                <View style={styles.sessionDateContainer}>
+                                <LinearGradient
+                                    colors={['#5508a0', '#a1009b']}
+                                    start={{ x: 0, y: 0 }}
+                                    end={{ x: 1, y: 1 }}
+                                    angle={45}
+                                    style={styles.sessionDateContainer}
+                                >
                                     <View style={styles.dateContainer}>
                                         <Text style={styles.dayText}>Wed</Text>
                                         <Text style={styles.dayText}>14</Text>
                                     </View>
                                     <View style={styles.hourContainer}>
-                                        <MaterialCommunityIcons name="clock" size={20} color="black" style={styles.clockIcon} />
+                                        <MaterialCommunityIcons name="clock" size={20} color="white" style={styles.clockIcon} />
                                         <Text style={styles.timeText}>10:00 - 10:15</Text>
                                     </View>
                                     <View style={styles.roomContainer}>
-                                        <MaterialCommunityIcons name="map-marker" size={20} color="black" style={styles.mapIcon} />
+                                        <MaterialCommunityIcons name="map-marker" size={20} color="white" style={styles.mapIcon} />
                                         <Text style={styles.roomNameText}>Stage 3</Text>
                                     </View>
-                                </View>
-                                <View style={styles.titleContainer}>
+                                </LinearGradient>
+                                <LinearGradient
+                                    colors={['#5508a0', '#a1009b']}
+                                    start={{ x: 0, y: 0 }}
+                                    end={{ x: 1, y: 1 }}
+                                    angle={45}
+                                    style={styles.titleContainer}
+                                >
                                     <Text style={styles.firstTitleText}>(Un)Expected Trends: Digging into Deeptech</Text>
-                                    <Text>DeepTech</Text>
-                                </View>
-                                <View style={styles.imageContainer}>
+                                    <Text style={styles.societyText}>DeepTech</Text>
+                                </LinearGradient>
+                                <LinearGradient
+                                    colors={['#5508a0', '#a1009b']}
+                                    start={{ x: 0, y: 0 }}
+                                    end={{ x: 1, y: 1 }}
+                                    angle={45}
+                                    style={styles.imageContainer}
+                                >
                                     <View style={styles.circleImageContainer}>
                                         <Image
                                             source={require("../../assets/image/p1.png")}
@@ -105,7 +123,7 @@ export default function ProgramScreen() {
                                         <Text style={styles.nameText}>Anne-Sophie CARRESE</Text>
                                         <Text style={styles.jobText}>Partner (ELAIA PARTNERS)</Text>
                                     </View>
-                                </View>
+                                </LinearGradient>
                             </View>
                             <View style={styles.block}>
                                 <Text>Wednesday 14 - Column A - Block 2</Text>
@@ -181,20 +199,25 @@ const styles = StyleSheet.create({
     sessionDateContainer: {
         flexDirection: "row",
         justifyContent: "space-between",
-        backgroundColor: "lightgray",
         padding: 10,
+        borderWidth: 1,
+        borderColor: "lightgray",
         borderRadius: 5,
     },
     titleContainer: {
         justifyContent: "space-between",
         backgroundColor: "white",
         padding: 10,
+        borderWidth: 1,
+        borderColor: "lightgray",
         borderRadius: 5,
     },
     imageContainer: {
         justifyContent: "space-between",
         backgroundColor: "yellow",
         padding: 10,
+        borderWidth: 1,
+        borderColor: "lightgray",
         borderRadius: 5,
         flexDirection: "row",
         alignItems: "center",
@@ -213,6 +236,7 @@ const styles = StyleSheet.create({
     nameText: {
         fontWeight: "bold",
         fontSize: 16,
+        color: "white",
     },
     jobText: {
         color: "gray",
@@ -224,6 +248,12 @@ const styles = StyleSheet.create({
     dayText: {
         marginRight: 5,
         fontWeight: "bold",
+        color: "white",
+    },
+    timeText: {
+        marginRight: 5,
+        fontWeight: "bold",
+        color: "white",
     },
     roomContainer: {
         flexDirection: "row",
@@ -232,6 +262,7 @@ const styles = StyleSheet.create({
     },
     roomNameText: {
         fontWeight: "bold",
+        color: "white",
     },
     hourContainer: {
         flexDirection: 'row',
@@ -245,10 +276,13 @@ const styles = StyleSheet.create({
         marginRight: 5,
     },
     firstTitleText: {
-        fontSize: 20,
+        fontSize: 18,
         textTransform: 'uppercase',
         paddingTop: 5,
-        color: 'black',
+        color: 'white',
         lineHeight: 20,
     },
+    societyText:{
+        color: 'gray',
+    }
 });
