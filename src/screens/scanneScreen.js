@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  StyleSheet,
-  View,
-  TouchableOpacity,
-  Text,
-  Alert,
-  Dimensions,
-} from "react-native";
+import { StyleSheet, View, TouchableOpacity, Text, Alert, Dimensions, Image } from "react-native";
 import CameraScanner from "../components/cameraScanner";
 import TicketInput from "../components/ticketInput";
 import UploadTicket from "../components/uploadTicket";
@@ -14,7 +7,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { Card } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { LinearGradient } from 'expo-linear-gradient';
-import { Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 export default function ScannerForm() {
   const [showCamera, setShowCamera] = useState(false);
@@ -23,6 +16,7 @@ export default function ScannerForm() {
   const [ticketUrl, setTicketUrl] = useState("");
   const [showTicketDownloader, setShowTicketDownloader] = useState(false);
   const [isCardSelected, setIsCardSelected] = useState(false);
+  const navigation = useNavigation();
 
   const handleBarCodeScanned = ({ type, data }) => {
     setShowCamera(false);
@@ -66,12 +60,18 @@ export default function ScannerForm() {
     setIsCardSelected(false);
   };
 
+  const handleLogoPress = () => {
+    navigation.navigate('Home');
+  };
+
   return (
     <View style={styles.container}>
-      <Image
-        source={require('../../assets/image/logo-v.png')}
-        style={styles.logo}
-      />
+      <TouchableOpacity onPress={handleLogoPress}>
+        <Image
+          source={require('../../assets/image/logo-v.png')}
+          style={styles.logo}
+        />
+      </TouchableOpacity>
       {!isCardSelected && !showInput && !showCamera && (
         <View>
           <UploadTicket />
@@ -130,7 +130,6 @@ export default function ScannerForm() {
     </View >
   );
 }
-
 const { width, height } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
@@ -171,10 +170,10 @@ const styles = StyleSheet.create({
     left: "100%",
     top: "50%",
     transform: [{ translateY: -50 }],
-    width: 2, // Updated width for better visibility
+    width: 2,
     height: "100%",
     borderRightWidth: 2,
-    borderRightColor: "rgba(255, 255, 255, 0.5)", // Updated color for visibility
+    borderRightColor: "rgba(255, 255, 255, 0.5)",
     opacity: 0.5,
   },
   iconContainer: {
