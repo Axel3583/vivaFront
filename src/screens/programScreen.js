@@ -8,7 +8,7 @@ import {
     Dimensions,
 } from "react-native";
 
-import { FiClock } from 'react-icons/fi';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export default function ProgramScreen() {
     const [selectedButton, setSelectedButton] = useState("Wednesday 14");
@@ -80,6 +80,7 @@ export default function ProgramScreen() {
                                         <Text style={styles.dayText}>14</Text>
                                     </View>
                                     <View style={styles.hourContainer}>
+                                        <MaterialCommunityIcons name="clock" size={20} color="black" style={styles.clockIcon} />
                                         <Text style={styles.timeText}>10:00 - 10:15</Text>
                                     </View>
                                     <View style={styles.roomContainer}>
@@ -148,10 +149,10 @@ const styles = StyleSheet.create({
     },
     columnsContainer: {
         flexDirection: "column",
-        paddingHorizontal: 20,
+        paddingHorizontal: 10,
     },
     column: {
-        alignItems: "center",
+        // alignItems: "center",
     },
     block: {
         backgroundColor: "lightblue",
@@ -180,5 +181,13 @@ const styles = StyleSheet.create({
     },
     roomNameText: {
         fontWeight: "bold",
-    }
+    },
+    hourContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 5,
+      },
+    clockIcon: {
+        marginRight: 5,
+    },
 });
