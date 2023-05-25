@@ -13,6 +13,7 @@ import UploadTicket from "../components/uploadTicket";
 import { Ionicons } from "@expo/vector-icons";
 import { Card } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function ScannerForm() {
   const [showCamera, setShowCamera] = useState(false);
@@ -88,20 +89,17 @@ export default function ScannerForm() {
         ) : (
           <View style={styles.buttonContainer}>
             <Card containerStyle={styles.card}>
-              <TouchableOpacity
+              <LinearGradient
+                colors={['#fff265', '#ff5900', '#f5255d']}
                 style={styles.button}
-                onPress={handleCameraPress}
               >
-                <View style={styles.iconContainer}>
-                  <Icon
-                    name="qrcode"
-                    size={20}
-                    color="#fff"
-                    style={styles.icon}
-                  />
-                </View>
-                <Text style={styles.buttonText}>Scanner un QR code</Text>
-              </TouchableOpacity>
+                <TouchableOpacity onPress={handleInputPress}>
+                  <View style={styles.iconContainer}>
+                    <Icon name="edit" size={20} color="#fff" style={styles.icon} />
+                  </View>
+                  <Text style={styles.buttonText}>Entrer le code du ticket</Text>
+                </TouchableOpacity>
+              </LinearGradient>
             </Card>
             <Card containerStyle={styles.card}>
               <TouchableOpacity
@@ -161,10 +159,11 @@ const styles = StyleSheet.create({
   // },
 
   button: {
-    backgroundColor: "#f55e30",
     padding: 10,
     borderRadius: 5,
     marginHorizontal: 5,
+    // backgroundImage: 'linear-gradient(135deg, #fff265, #ff5900, #f5255d)',
+    // backgroundColor: 'linear-gradient(135deg, #fff265, #ff5900, #f5255d)',
   },
   buttonText: {
     fontWeight: "bold",
