@@ -8,6 +8,8 @@ import {
     Dimensions,
 } from "react-native";
 
+import { FiClock } from 'react-icons/fi';
+
 export default function ProgramScreen() {
     const [selectedButton, setSelectedButton] = useState("Wednesday 14");
 
@@ -84,7 +86,7 @@ export default function ProgramScreen() {
                                         <Text style={styles.roomNameText}>Stage 3</Text>
                                     </View>
                                 </View>
-                                <Text>Wednesday 14 - Column A - Block 2</Text>
+                                <Text>Wednesday 14 - Column A - Block 1</Text>
                             </View>
                             <View style={styles.block}>
                                 <Text>Wednesday 14 - Column A - Block 2</Text>
@@ -102,6 +104,7 @@ export default function ProgramScreen() {
                 )}
                 {/* Render other selectedButton conditions */}
             </View>
+
         </View>
     );
 }
@@ -157,25 +160,18 @@ const styles = StyleSheet.create({
         borderRadius: 5,
     },
     sessionDateContainer: {
+        flexDirection: "row",
+        justifyContent: "space-between",
         backgroundColor: "lightgray",
         padding: 10,
         borderRadius: 5,
     },
     dateContainer: {
         flexDirection: "row",
-        justifyContent: "center",
-        marginBottom: 5,
+        alignItems: "center",
     },
     dayText: {
         marginRight: 5,
-        fontWeight: "bold",
-    },
-    hourContainer: {
-        flexDirection: "row",
-        alignItems: "center",
-        marginBottom: 5,
-    },
-    timeText: {
         fontWeight: "bold",
     },
     roomContainer: {
@@ -184,5 +180,5 @@ const styles = StyleSheet.create({
     },
     roomNameText: {
         fontWeight: "bold",
-    },
+    }
 });
