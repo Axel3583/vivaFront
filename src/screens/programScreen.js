@@ -109,33 +109,42 @@ export default function ProgramScreen() {
                     </View>
                 )}
                 {selectedButton === "Friday 16" && (
-                    <View style={styles.column}>
-                        <View style={styles.block}>
-                            <Text>Friday 16 - Column A - Block 1</Text>
+                    <View style={styles.columnsContainer}>
+                        <View style={styles.column}>
+                            <View style={styles.block}>
+                                <Text>Friday 16 - Column A - Block 1</Text>
+                            </View>
+                            <View style={styles.block}>
+                                <Text>Friday 16 - Column A - Block 2</Text>
+                            </View>
                         </View>
-                        <View style={styles.block}>
-                            <Text>Friday 16 - Column A - Block 2</Text>
-                        </View>
-                        <View style={styles.block}><Text>Friday 16 - Column B - Block 1</Text>
-                        </View>
-                        <View style={styles.block}>
-                            <Text>Friday 16 - Column B - Block 2</Text>
+                        <View style={styles.column}>
+                            <View style={styles.block}>
+                                <Text>Friday 16 - Column B - Block 1</Text>
+                            </View>
+                            <View style={styles.block}>
+                                <Text>Friday 16 - Column B - Block 2</Text>
+                            </View>
                         </View>
                     </View>
                 )}
                 {selectedButton === "Saturday 17" && (
-                    <View style={styles.column}>
-                        <View style={styles.block}>
-                            <Text>Saturday 17 - Column A - Block 1</Text>
+                    <View style={styles.columnsContainer}>
+                        <View style={styles.column}>
+                            <View style={styles.block}>
+                                <Text>Saturday 17 - Column A - Block 1</Text>
+                            </View>
+                            <View style={styles.block}>
+                                <Text>Saturday 17 - Column A - Block 2</Text>
+                            </View>
                         </View>
-                        <View style={styles.block}>
-                            <Text>Saturday 17 - Column A - Block 2</Text>
-                        </View>
-                        <View style={styles.block}>
-                            <Text>Saturday 17 - Column B - Block 1</Text>
-                        </View>
-                        <View style={styles.block}>
-                            <Text>Saturday 17 - Column B - Block 2</Text>
+                        <View style={styles.column}>
+                            <View style={styles.block}>
+                                <Text>Saturday 17 - Column B - Block 1</Text>
+                            </View>
+                            <View style={styles.block}>
+                                <Text>Saturday 17 - Column B - Block 2</Text>
+                            </View>
                         </View>
                     </View>
                 )}
@@ -183,12 +192,12 @@ const styles = StyleSheet.create({
     columnsContainer: {
         flexDirection: "row",
         paddingHorizontal: 20,
-        justifyContent: "center", // Add this line
-        alignItems: "center", // Add this line
-      },
+        justifyContent: "center",
+        alignItems: "center",
+    },
     column: {
         flex: 1,
-        flexDirection: "column", // Add this line
+        flexDirection: "column",
     },
     block: {
         backgroundColor: "lightblue",
