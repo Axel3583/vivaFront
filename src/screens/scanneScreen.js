@@ -1,18 +1,13 @@
 import React, { useState } from "react";
-import {
-  StyleSheet,
-  View,
-  TouchableOpacity,
-  Text,
-  Alert,
-  Dimensions,
-} from "react-native";
+import { StyleSheet, View, TouchableOpacity, Text, Alert, Dimensions, Image } from "react-native";
 import CameraScanner from "../components/cameraScanner";
 import TicketInput from "../components/ticketInput";
 import UploadTicket from "../components/uploadTicket";
 import { Ionicons } from "@expo/vector-icons";
 import { Card } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { LinearGradient } from 'expo-linear-gradient';
+import { useNavigation } from '@react-navigation/native';
 
 export default function ScannerForm() {
   const [showCamera, setShowCamera] = useState(false);
@@ -21,6 +16,7 @@ export default function ScannerForm() {
   const [ticketUrl, setTicketUrl] = useState("");
   const [showTicketDownloader, setShowTicketDownloader] = useState(false);
   const [isCardSelected, setIsCardSelected] = useState(false);
+  const navigation = useNavigation();
 
   const handleBarCodeScanned = ({ type, data }) => {
     setShowCamera(false);
@@ -64,14 +60,23 @@ export default function ScannerForm() {
     setIsCardSelected(false);
   };
 
+  const handleLogoPress = () => {
+    navigation.navigate('Home');
+  };
+
   return (
     <View style={styles.container}>
+      <TouchableOpacity onPress={handleLogoPress}>
+        <Image
+          source={require('../../assets/image/logo-v.png')}
+          style={styles.logo}
+        />
+      </TouchableOpacity>
       {!isCardSelected && !showInput && !showCamera && (
         <View>
           <UploadTicket />
         </View>
       )}
-
       <View style={styles.container}>
         {showCamera ? (
           <CameraScanner
@@ -88,88 +93,88 @@ export default function ScannerForm() {
         ) : (
           <View style={styles.buttonContainer}>
             <Card containerStyle={styles.card}>
-              <TouchableOpacity
+              <LinearGradient
+                colors={['#fff265', '#ff5900', '#f5255d']}
                 style={styles.button}
-                onPress={handleCameraPress}
               >
-                <View style={styles.iconContainer}>
-                  <Icon
-                    name="qrcode"
-                    size={20}
-                    color="#fff"
-                    style={styles.icon}
-                  />
-                </View>
-                <Text style={styles.buttonText}>Scanner un QR code</Text>
-              </TouchableOpacity>
+                <TouchableOpacity onPress={handleCameraPress}>
+                  <View style={styles.buttonContent}>
+                    <View style={styles.iconContainer}>
+                      <Icon name="qrcode" size={20} color="#fff" style={styles.icon} />
+                    </View>
+                    <Text style={styles.buttonText}>Scanner le QR code</Text>
+                  </View>
+                  <View style={styles.dashedLine} />
+                </TouchableOpacity>
+              </LinearGradient>
             </Card>
             <Card containerStyle={styles.card}>
-              <TouchableOpacity
+              <LinearGradient
+                colors={['#fff265', '#ff5900', '#f5255d']}
                 style={styles.button}
-                onPress={handleInputPress}
               >
-                <View style={styles.iconContainer}>
-                  <Icon
-                    name="edit"
-                    size={20}
-                    color="#fff"
-                    style={styles.icon}
-                  />
-                </View>
-                <Text style={styles.buttonText}>Entrer le code du ticket</Text>
-              </TouchableOpacity>
+                <TouchableOpacity onPress={handleInputPress}>
+                  <View style={styles.buttonContent}>
+                    <View style={styles.iconContainer}>
+                      <Icon name="edit" size={20} color="#fff" style={styles.icon} />
+                    </View>
+                    <Text style={styles.buttonText}>Entrer le code du ticket</Text>
+                  </View>
+                  <View style={styles.dashedLine} />
+                </TouchableOpacity>
+              </LinearGradient>
             </Card>
           </View>
         )}
       </View>
-    </View>
+    </View >
   );
 }
-
-
-
 const { width, height } = Dimensions.get("window");
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    flexDirection: "colum",
+    flexDirection: "column",
+  },
+  logo: {
+    position: 'absolute',
+    top: 60,
+    left: 20,
+    width: 60,
+    height: 60,
   },
   buttonContainer: {
-    flexDirection: "colum",
+    flexDirection: "column",
   },
-  // container: {
-  //   backgroundColor: '#d3d3d3',
-  //   borderRadius: 3,
-  //   padding: width < 380 ? 10 : 16,
-  //   minWidth: 280,
-  //   minHeight: 230,
-  //   display: 'flex',
-  //   justifyContent: 'center',
-  //   alignItems: 'center',
-  //   flexDirection: 'column',
-  //   shadowColor: '#000', // Couleur de l'ombre
-  //   shadowOffset: {
-  //     width: 0,
-  //     height: 2,
-  //   },
-  //   shadowOpacity: 0.25,
-  //   shadowRadius: 4,
-  //   borderStyle: 'dashed', // Style des bordures en pointillés
-  //   borderColor: '#fff', // Couleur des bordures en pointillés
-  //   borderWidth: 1,
-  // },
-
   button: {
-    backgroundColor: "#f55e30",
     padding: 10,
-    borderRadius: 5,
+    borderRadius: 2,
     marginHorizontal: 5,
+    // backgroundImage: 'linear-gradient(135deg, #fff265, #ff5900, #f5255d)',
+    // backgroundColor: 'linear-gradient(135deg, #fff265, #ff5900, #f5255d)',
+  },
+  buttonContent: {
+    flexDirection: "row",
+    alignItems: "center",
   },
   buttonText: {
     fontWeight: "bold",
     textAlign: "center",
     fontFamily: "MuseoSans_500",
+    color: "white",
+  },
+  dashedLine: {
+    position: "absolute",
+    left: "100%",
+    top: "50%",
+    transform: [{ translateY: -50 }],
+    width: 2,
+    height: "100%",
+    borderRightWidth: 2,
+    borderRightColor: "rgba(255, 255, 255, 0.5)",
+    opacity: 0.5,
   },
   iconContainer: {
     marginRight: 5,

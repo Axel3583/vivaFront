@@ -71,6 +71,7 @@ export default function FileUpload({ files, setFiles, removeFile }) {
             <View style={styles.fileInput}>
                 <TouchableOpacity style={styles.button} onPress={handleUpload}>
                 <AntDesign name="addfile" style={styles.icon} />
+                <Text style={styles.buttonText}>Télécharger un ticket</Text>
                 </TouchableOpacity>
             </View>
             <Text style={styles.supportText}>Support files</Text>
@@ -81,7 +82,7 @@ export default function FileUpload({ files, setFiles, removeFile }) {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#d3d3d3',
+        backgroundColor: '#fff',
         borderRadius: 3,
         padding: width < 380 ? 10 : 16,
         minWidth: 280,
@@ -98,14 +99,14 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 4,
         borderStyle: 'dashed', // Style des bordures en pointillés
-        borderColor: '#fff', // Couleur des bordures en pointillés
+        borderColor: '#a1009b', // Couleur des bordures en pointillés
         borderWidth: 1,
         paddingBottom: 50
     },
 
     fileInput: {
         position: 'relative',
-        marginBottom: width < 380 ? 10 : 15,
+        marginBottom: width < 380 ? 20 : 25,
     },
     fileInputInput: {
         position: 'absolute',
@@ -118,14 +119,14 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#f55e30',
+        backgroundColor: '#3c7dec',
         borderRadius: 4,
         width: width / 2,
-        height: 50,
+        height: 40,
         alignContent: 'center'
     },
     buttonText: {
-        fontSize: width < 380 ? 16 : 18,
+        fontSize: width < 380 ? 14 : 16,
         color: '#fff'
     },
     icon: {

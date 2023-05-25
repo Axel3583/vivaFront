@@ -19,9 +19,9 @@ function TabNavigator() {
   return (
     <Tab.Navigator
       initialRouteName="Scanne"
-      activeColor="#f55e30"
-      inactiveColor="#3e2465"
-      barStyle={{ backgroundColor: '#FAF9F7' }} >
+      activeColor="#ff0081"
+      inactiveColor="#5508a0"
+      barStyle={{ background: '#FAF9F7' }} >
 
       <Tab.Screen
         options={{
@@ -45,7 +45,7 @@ function TabNavigator() {
 
       <Tab.Screen
         options={{
-          tabBarLabel: 'Home',
+          tabBarLabel: 'Accueil',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="home" color={color} size={26} />),
         }}
