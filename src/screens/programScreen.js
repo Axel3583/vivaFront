@@ -35,6 +35,12 @@ export default function ProgramScreen() {
             </View>
             <View style={styles.buttonContainer}>
                 <TouchableOpacity
+                    onPress={() => handleButtonPress("prev")}
+                    style={[styles.button, styles.arrowButton]}
+                >
+                    <Text style={styles.arrowButtonText}>{'<'}</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
                     onPress={() => handleButtonPress("Wednesday 14")}
                     style={[
                         styles.button,
@@ -69,6 +75,12 @@ export default function ProgramScreen() {
                     ]}
                 >
                     <Text style={styles.buttonText}>Saturday 17</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => handleButtonPress("next")}
+                    style={[styles.button, styles.arrowButton]}
+                >
+                    <Text style={styles.arrowButtonText}>{'>'}</Text>
                 </TouchableOpacity>
             </View>
             <View style={styles.columnsContainer}>
@@ -135,10 +147,9 @@ export default function ProgramScreen() {
                 )}
                 {/* Render other selectedButton conditions */}
             </View>
-
         </View>
     );
-}
+};
 
 const { width, height } = Dimensions.get("window");
 
@@ -163,6 +174,8 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         marginVertical: 10,
         marginHorizontal: 20,
+        marginLeft: 20,
+        marginRight: 20,
     },
     button: {
         paddingHorizontal: 10,
@@ -176,6 +189,17 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         fontWeight: "bold",
+    },
+    arrowButton: {
+        paddingHorizontal: 10,
+        paddingVertical: 5,
+        backgroundColor: "lightgray",
+        borderRadius: 5,
+        marginHorizontal: 5,
+    },
+    arrowButtonText: {
+        fontWeight: "bold",
+        fontSize: 20,
     },
     columnsContainer: {
         flexDirection: "column",
@@ -236,9 +260,11 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         fontSize: 16,
         color: "black",
+        fontFamily: "MuseoSans_500",
     },
     jobText: {
         color: "gray",
+        fontFamily: "MuseoSans_500",
     },
     dateContainer: {
         flexDirection: "row",
@@ -248,11 +274,13 @@ const styles = StyleSheet.create({
         marginRight: 5,
         fontWeight: "bold",
         color: "white",
+        fontFamily: "MuseoSans_500",
     },
     timeText: {
         marginRight: 5,
         fontWeight: "bold",
         color: "white",
+        fontFamily: "MuseoSans_500",
     },
     roomContainer: {
         flexDirection: "row",
@@ -262,6 +290,7 @@ const styles = StyleSheet.create({
     roomNameText: {
         fontWeight: "bold",
         color: "white",
+        fontFamily: "MuseoSans_500",
     },
     hourContainer: {
         flexDirection: 'row',
@@ -280,8 +309,10 @@ const styles = StyleSheet.create({
         paddingTop: 5,
         color: 'white',
         lineHeight: 20,
+        fontFamily: "MuseoSans_500",
     },
     societyText: {
         color: 'gray',
+        fontFamily: "MuseoSans_500",
     }
 });
