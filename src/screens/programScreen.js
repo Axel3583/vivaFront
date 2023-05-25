@@ -8,6 +8,8 @@ import {
     Dimensions,
 } from "react-native";
 
+import LinearGradient from "react-native-linear-gradient";
+
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export default function ProgramScreen() {
@@ -84,10 +86,26 @@ export default function ProgramScreen() {
                                         <Text style={styles.timeText}>10:00 - 10:15</Text>
                                     </View>
                                     <View style={styles.roomContainer}>
+                                        <MaterialCommunityIcons name="map-marker" size={20} color="black" style={styles.mapIcon} />
                                         <Text style={styles.roomNameText}>Stage 3</Text>
                                     </View>
                                 </View>
-                                <Text>Wednesday 14 - Column A - Block 1</Text>
+                                <View style={styles.titleContainer}>
+                                    <Text style={styles.firstTitleText}>(Un)Expected Trends: Digging into Deeptech</Text>
+                                    <Text>DeepTech</Text>
+                                </View>
+                                <View style={styles.imageContainer}>
+                                    <View style={styles.circleImageContainer}>
+                                        <Image
+                                            source={require("../../assets/image/p1.png")}
+                                            style={styles.circleImage}
+                                        />
+                                    </View>
+                                    <View>
+                                        <Text style={styles.nameText}>Anne-Sophie CARRESE</Text>
+                                        <Text style={styles.jobText}>Partner (ELAIA PARTNERS)</Text>
+                                    </View>
+                                </View>
                             </View>
                             <View style={styles.block}>
                                 <Text>Wednesday 14 - Column A - Block 2</Text>
@@ -167,6 +185,38 @@ const styles = StyleSheet.create({
         padding: 10,
         borderRadius: 5,
     },
+    titleContainer: {
+        justifyContent: "space-between",
+        backgroundColor: "white",
+        padding: 10,
+        borderRadius: 5,
+    },
+    imageContainer: {
+        justifyContent: "space-between",
+        backgroundColor: "yellow",
+        padding: 10,
+        borderRadius: 5,
+        flexDirection: "row",
+        alignItems: "center",
+    },
+    circleImageContainer: {
+        width: 40,
+        height: 40,
+        borderRadius: 20,
+        overflow: "hidden",
+        marginRight: 10,
+    },
+    circleImage: {
+        width: "100%",
+        height: "100%",
+    },
+    nameText: {
+        fontWeight: "bold",
+        fontSize: 16,
+    },
+    jobText: {
+        color: "gray",
+    },
     dateContainer: {
         flexDirection: "row",
         alignItems: "center",
@@ -178,6 +228,7 @@ const styles = StyleSheet.create({
     roomContainer: {
         flexDirection: "row",
         alignItems: "center",
+        marginBottom: 5,
     },
     roomNameText: {
         fontWeight: "bold",
@@ -186,8 +237,18 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         marginBottom: 5,
-      },
+    },
     clockIcon: {
         marginRight: 5,
+    },
+    mapIcon: {
+        marginRight: 5,
+    },
+    firstTitleText: {
+        fontSize: 20,
+        textTransform: 'uppercase',
+        paddingTop: 5,
+        color: 'black',
+        lineHeight: 20,
     },
 });
