@@ -4,6 +4,7 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import HomeScreen from './src/screens/homeScreen';
 import ScannerForm from './src/screens/scanneScreen';
+import ProgramScreen from './src/screens/programScreen';
 import AppIntro from './src/components/appIntroSlider';
 import * as Font from 'expo-font';
 import { StyleSheet, ActivityIndicator, Animated, View, Image } from 'react-native';
@@ -30,6 +31,16 @@ function TabNavigator() {
         }}
         name="Scanne"
         component={ScannerForm}
+      />
+
+      <Tab.Screen
+        options={{
+          tabBarLabel: 'Programme',
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="book-open-page-variant" color={color} size={26} />),
+        }}
+        name="Program"
+        component={ProgramScreen}
       />
 
       <Tab.Screen
