@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, View, TouchableOpacity, Text } from "react-native";
 import { Camera } from "expo-camera";
-import { BarCodeScanner } from "expo-barcode-scanner";
+import { WebView } from "react-native-webview";
 
-const CameraScanner = ({ handleBarCodeScanned, handleGoBack }) => {
+export default function CameraScanner({ handleGoBack }) {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
+  const [scannedUrl, setScannedUrl] = useState(null);
 
   useEffect(() => {
     (async () => {
@@ -14,13 +15,20 @@ const CameraScanner = ({ handleBarCodeScanned, handleGoBack }) => {
     })();
   }, []);
 
+  useEffect(() => {
+    if (scannedUrl) {
+      // Scanned URL is available, open it in a WebView
+      setScanned(true);
+    }
+  }, [scannedUrl]);
+
   const handleScanAgain = () => {
     setScanned(false);
   };
 
   const handleBarCodeScannedInternal = ({ data }) => {
-    setScanned(true);
-    handleBarCodeScanned(data);
+    console.log(data, "Coordonées code Qr");
+    setScannedUrl(data);
   };
 
   if (hasPermission === null) {
@@ -28,12 +36,18 @@ const CameraScanner = ({ handleBarCodeScanned, handleGoBack }) => {
   }
 
   if (hasPermission === false) {
-    return <Text>No access to camera</Text>;
+    return (
+      <Text style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        No access to camera
+      </Text>
+    );
   }
 
-  return (
-    <View style={styles.container}>
-      {scanned ? (
+  if (scanned) {
+    if (scannedUrl) {
+      return <WebView source={{ uri: scannedUrl }} />;
+    } else {
+      return (
         <View>
           <TouchableOpacity style={styles.button} onPress={handleScanAgain}>
             <Text style={styles.buttonText}>Scan again</Text>
@@ -42,20 +56,21 @@ const CameraScanner = ({ handleBarCodeScanned, handleGoBack }) => {
             <Text style={styles.buttonText}>Retour</Text>
           </TouchableOpacity>
         </View>
-      ) : (
-        <>
-          <Camera
-            style={styles.camera}
-            onBarCodeScanned={handleBarCodeScannedInternal}
-          />
-          <TouchableOpacity style={styles.button} onPress={handleGoBack}>
-            <Text style={styles.buttonText}>Cancel</Text>
-          </TouchableOpacity>
-        </>
-      )}
+      );
+    }
+  }
+return (
+    <View style={styles.container}>
+      <Camera
+        style={styles.camera}
+        onBarCodeScanned={handleBarCodeScannedInternal}
+      />
+      <TouchableOpacity style={styles.button} onPress={handleGoBack}>
+        <Text style={styles.buttonText}>Cancel</Text>
+      </TouchableOpacity>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -68,16 +83,15 @@ const styles = StyleSheet.create({
     aspectRatio: 1,
   },
   button: {
-    backgroundColor: "#f55e30",
+    backgroundColor: "#BE2B3E",
     padding: 10,
     borderRadius: 5,
     marginTop: 10,
   },
   buttonText: {
+    color: "#fff",
     fontWeight: "bold",
     textAlign: "center",
-    fontFamily: 'MuseoSans_500'
+    fontFamily: "MuseoSans_500",
   },
 });
-
-export default CameraScanner;
