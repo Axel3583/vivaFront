@@ -2,12 +2,9 @@ import React, {useState} from 'react';
 import { StyleSheet, View , Text} from 'react-native';
 import FileUpload from './fileUpload';
 import FileList from './FileList';
-// import { Card as ScannerCard, Text } from '@blueromans/react-native-ui-kit';
 
 export default function CardUpload() {
-//   const fileInputState = {
-//     value: { name: 'example.pdf' } // Remplacez cette valeur par l'état réel de votre fichier
-//   };
+
 const [files, setFiles] = useState([{
     name: 'myFile.pdf'
 }])
@@ -20,14 +17,9 @@ console.log(files)
 
   return (
     <View style={styles.container}>
-        <Text style={styles.title}>Télécharger un ticket</Text>
         <FileUpload files={files} setFiles={setFiles} removeFile={removeFile}/>
         <FileList files={files} removeFile={removeFile}/>
     </View>
-    // <ScannerCard>
-    //   <ScannerCard.Cover style={{ backgroundColor: '#f15700' }} />
-    //   <Text>The file name is {fileInputState.value?.name}</Text>
-    // </ScannerCard>
   );
 }
 
@@ -37,7 +29,6 @@ const styles = StyleSheet.create({
     title: {
       fontWeight: 'bold',
       marginBottom: '1em',
-      fontSize: '1.2rem',
       fontFamily: 'MuseoSans_900'
     }
 })

@@ -72,12 +72,11 @@ export default function ScannerForm() {
         source={require('../../assets/image/logo-v.png')}
         style={styles.logo}
       />
-      {/* {!isCardSelected && !showInput && !showCamera && (
+      {!isCardSelected && !showInput && !showCamera && (
         <View>
           <UploadTicket />
         </View>
-      )} */}
-
+      )}
       <View style={styles.container}>
         {showCamera ? (
           <CameraScanner
@@ -99,10 +98,13 @@ export default function ScannerForm() {
                 style={styles.button}
               >
                 <TouchableOpacity onPress={handleCameraPress}>
-                  <View style={styles.iconContainer}>
-                    <Icon name="qrcode" size={20} color="#fff" style={styles.icon} />
+                  <View style={styles.buttonContent}>
+                    <View style={styles.iconContainer}>
+                      <Icon name="qrcode" size={20} color="#fff" style={styles.icon} />
+                    </View>
+                    <Text style={styles.buttonText}>Scanner le QR code</Text>
                   </View>
-                  <Text style={styles.buttonText}>Scanner le QR code</Text>
+                  <View style={styles.dashedLine} />
                 </TouchableOpacity>
               </LinearGradient>
             </Card>
@@ -112,28 +114,30 @@ export default function ScannerForm() {
                 style={styles.button}
               >
                 <TouchableOpacity onPress={handleInputPress}>
-                  <View style={styles.iconContainer}>
-                    <Icon name="edit" size={20} color="#fff" style={styles.icon} />
+                  <View style={styles.buttonContent}>
+                    <View style={styles.iconContainer}>
+                      <Icon name="edit" size={20} color="#fff" style={styles.icon} />
+                    </View>
+                    <Text style={styles.buttonText}>Entrer le code du ticket</Text>
                   </View>
-                  <Text style={styles.buttonText}>Entrer le code du ticket</Text>
+                  <View style={styles.dashedLine} />
                 </TouchableOpacity>
               </LinearGradient>
             </Card>
           </View>
         )}
       </View>
-    </View>
+    </View >
   );
 }
 
-
-
 const { width, height } = Dimensions.get("window");
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    flexDirection: "colum",
+    flexDirection: "column",
   },
   logo: {
     position: 'absolute',
@@ -143,7 +147,7 @@ const styles = StyleSheet.create({
     height: 60,
   },
   buttonContainer: {
-    flexDirection: "colum",
+    flexDirection: "column",
   },
   button: {
     padding: 10,
@@ -152,11 +156,26 @@ const styles = StyleSheet.create({
     // backgroundImage: 'linear-gradient(135deg, #fff265, #ff5900, #f5255d)',
     // backgroundColor: 'linear-gradient(135deg, #fff265, #ff5900, #f5255d)',
   },
+  buttonContent: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
   buttonText: {
     fontWeight: "bold",
     textAlign: "center",
     fontFamily: "MuseoSans_500",
     color: "white",
+  },
+  dashedLine: {
+    position: "absolute",
+    left: "100%",
+    top: "50%",
+    transform: [{ translateY: -50 }],
+    width: 2, // Updated width for better visibility
+    height: "100%",
+    borderRightWidth: 2,
+    borderRightColor: "rgba(255, 255, 255, 0.5)", // Updated color for visibility
+    opacity: 0.5,
   },
   iconContainer: {
     marginRight: 5,

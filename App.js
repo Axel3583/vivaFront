@@ -34,7 +34,7 @@ function TabNavigator() {
 
       <Tab.Screen
         options={{
-          tabBarLabel: 'Home',
+          tabBarLabel: 'Accueil',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="home" color={color} size={26} />),
         }}

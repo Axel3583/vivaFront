@@ -8,9 +8,8 @@ export default function UploadTicket (){
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.button}>
-            {/* <Entypo name="upload" size={60} color="black" /> */}
            <CardUpload/>
-          </TouchableOpacity>
+      </TouchableOpacity>
     </View>
   )
 }
@@ -18,15 +17,9 @@ export default function UploadTicket (){
 
 const styles = StyleSheet.create({
     container: {
-        paddingVertical: 50,
+        paddingTop: 200,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center'
     },
-    // button: {
-    //     backgroundColor: "#3498db",
-    //     padding: 10,
-    //     borderRadius: 5,
-    //     marginHorizontal: 5,
-    //   }
 })
