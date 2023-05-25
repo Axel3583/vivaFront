@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import { StyleSheet, View, TouchableOpacity, Text } from "react-native";
 import { Camera } from "expo-camera";
 import { BarCodeScanner } from "expo-barcode-scanner";
+import { WebView } from 'react-native-webview';
 
-const CameraScanner = ({ handleBarCodeScanned, handleGoBack }) => {
+export default function CameraScanner({ handleGoBack }){
+
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
+  const [scannedUrl, setScannedUrl] = useState(null);
 
   useEffect(() => {
     (async () => {
@@ -19,8 +22,9 @@ const CameraScanner = ({ handleBarCodeScanned, handleGoBack }) => {
   };
 
   const handleBarCodeScannedInternal = ({ data }) => {
+    console.log(data)
     setScanned(true);
-    handleBarCodeScanned(data);
+    setScannedUrl(data);
   };
 
   if (hasPermission === null) {
@@ -28,20 +32,28 @@ const CameraScanner = ({ handleBarCodeScanned, handleGoBack }) => {
   }
 
   if (hasPermission === false) {
-    return <Text>No access to camera</Text>;
+    return <Text style={{
+      flex: 1,
+      justifyContent: 'center',
+      alignContent: 'center'
+    }}>No access to camera</Text>;
   }
 
   return (
     <View style={styles.container}>
       {scanned ? (
-        <View>
-          <TouchableOpacity style={styles.button} onPress={handleScanAgain}>
-            <Text style={styles.buttonText}>Scan again</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={handleGoBack}>
-            <Text style={styles.buttonText}>Retour</Text>
-          </TouchableOpacity>
-        </View>
+        scannedUrl ? (
+          <WebView source={{ uri: scannedUrl }} />
+        ) : (
+          <View>
+            <TouchableOpacity style={styles.button} onPress={handleScanAgain}>
+              <Text style={styles.buttonText}>Scan again</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={handleGoBack}>
+              <Text style={styles.buttonText}>Retour</Text>
+            </TouchableOpacity>
+          </View>
+        )
       ) : (
         <>
           <Camera
@@ -81,4 +93,3 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CameraScanner;
