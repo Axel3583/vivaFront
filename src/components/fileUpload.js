@@ -73,7 +73,7 @@ export default function FileUpload({ files, setFiles, removeFile }) {
                 <AntDesign name="addfile" style={styles.icon} />
                 </TouchableOpacity>
             </View>
-            <Text style={styles.supportText}>Support files</Text>
+            <Text style={styles.supportText}>Format</Text>
             <Text style={styles.fileTypes}>PDF, JPG, PNG, SVG</Text>
         </View>
     )
@@ -81,7 +81,7 @@ export default function FileUpload({ files, setFiles, removeFile }) {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#d3d3d3',
+        backgroundColor: '#E47B24',
         borderRadius: 3,
         padding: width < 380 ? 10 : 16,
         minWidth: 280,
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#f55e30',
+        backgroundColor: '#fff',
         borderRadius: 4,
         width: width / 2,
         height: 50,
@@ -130,17 +130,19 @@ const styles = StyleSheet.create({
     },
     icon: {
         fontSize: 24,
-        color: '#fff',
+        color:"#E47B24",
         marginRight: width < 380 ? 6 : 8
     },
     supportText: {
         fontSize: width < 380 ? 14 : 16,
         marginTop: width < 380 ? 10 : 12,
-        fontFamily: 'MuseoSans_700'
+        fontFamily: 'MuseoSans_700',
+        color: '#fff',
     },
     fileTypes: {
         fontSize: width < 380 ? 14 : 16,
         marginTop: width < 380 ? 5 : 8,
-        fontFamily: 'MuseoSans_500'
+        fontFamily: 'MuseoSans_500',
+        color: '#fff',
     }
 });

@@ -68,12 +68,13 @@ const styles = StyleSheet.create({
     aspectRatio: 1,
   },
   button: {
-    backgroundColor: "#f55e30",
+    backgroundColor: "#BE2B3E",
     padding: 10,
     borderRadius: 5,
     marginTop: 10,
   },
   buttonText: {
+    color: '#fff',
     fontWeight: "bold",
     textAlign: "center",
     fontFamily: 'MuseoSans_500'

@@ -61,12 +61,14 @@ const styles = StyleSheet.create({
     maxWidth: "90%",
   },
   button: {
-    backgroundColor: "#f55e30",
+    backgroundColor: "#BE2B3E",
     padding: 10,
     borderRadius: 5,
+    alignItems: 'flex-start',
     marginHorizontal: 5,
   },
   buttonText: {
+    color: '#fff',
     fontWeight: "bold",
     textAlign: "center",
     fontFamily: 'MuseoSans_500'

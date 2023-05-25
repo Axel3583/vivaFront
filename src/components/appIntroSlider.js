@@ -9,31 +9,31 @@ const slides = [
     {
         key: '1',
         title: 'Title 1',
-        text: 'Description.\nSay something cool',
+        text: 'Découvrez les dernières innovations technologiques à VivaTech.',
         image: require('../../assets/image/1.jpg'),
         backgroundColor: '#59b2ab',
     },
     {
         key: '2',
         title: 'Title 2',
-        text: 'Other cool stuff',
+        text: 'Venez découvrir les tendances émergentes. Explorez les avancées en intelligence artificielle et la réalité virtuelle',
         image: require('../../assets/image/2.jpg'),
         backgroundColor: '#febe29',
     },
+    {
+        key: '3',
+        title: 'Rocket guy',
+        text: 'Participez aux conférences inspirantes et aux démonstrations passionnantes à VivaTech.',
+        image: require('../../assets/image/3.jpg'),
+        backgroundColor: '#22bcb5',
+    },
     // {
-    //     key: '3',
+    //     key: '4',
     //     title: 'Rocket guy',
     //     text: 'I\'m already out of descriptions\n\nLorem ipsum bla bla bla',
-    //     image: require('../../assets/image/3.jpg'),
+    //     image: require('../../assets/gradient/1.png'),
     //     backgroundColor: '#22bcb5',
-    // },
-    {
-        key: '4',
-        title: 'Rocket guy',
-        text: 'I\'m already out of descriptions\n\nLorem ipsum bla bla bla',
-        image: require('../../assets/gradient/1.png'),
-        backgroundColor: '#22bcb5',
-    }
+    // }
 ];
 
 export default class AppIntro extends React.Component {
@@ -41,6 +41,7 @@ export default class AppIntro extends React.Component {
         return (
             <View style={styles.slide}>
                 <Image source={item.image} style={styles.image} />
+                <Text style={styles.text}>{item.text}</Text>
             </View>
         );
     }
@@ -105,13 +106,16 @@ const styles = StyleSheet.create({
         paddingHorizontal: 30
     },
     text: {
-        color: '#666',
+        color: '#fff',
         textAlign: 'center',
         paddingBottom: 10,
         fontSize: width < 350 ? 20 : 23,  // Adjust size for smaller devices
         fontWeight: 'bold',
-        color: '#21465b',
-        alignSelf: 'center'
+        alignSelf: 'center',
+        position: 'absolute',
+        fontFamily: 'MuseoSans_500',
+        bottom: 50,
+        paddingHorizontal: 4
     },
     image: {
         width: width,

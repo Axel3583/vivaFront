@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       marginBottom: '1em',
       fontSize: '1.2rem',
+      color: '#fff',
       fontFamily: 'MuseoSans_900'
     }
 })
