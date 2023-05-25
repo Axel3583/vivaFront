@@ -1,11 +1,18 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Text, TouchableOpacity, Image, Dimensions } from "react-native";
+import {
+    StyleSheet,
+    View,
+    Text,
+    TouchableOpacity,
+    Image,
+    Dimensions,
+} from "react-native";
 
 export default function ProgramScreen() {
     const [selectedButton, setSelectedButton] = useState("Wednesday 14");
 
     const handleLogoPress = () => {
-        navigation.navigate('Home');
+        navigation.navigate("Home");
     };
 
     const handleButtonPress = (button) => {
@@ -17,7 +24,7 @@ export default function ProgramScreen() {
             <View style={styles.logoContainer}>
                 <TouchableOpacity onPress={handleLogoPress}>
                     <Image
-                        source={require('../../assets/image/logo-v.png')}
+                        source={require("../../assets/image/logo-v.png")}
                         style={styles.logo}
                     />
                 </TouchableOpacity>
@@ -62,34 +69,42 @@ export default function ProgramScreen() {
             </View>
             <View style={styles.columnsContainer}>
                 {selectedButton === "Wednesday 14" && (
-                    <View style={styles.column}>
-                        <View style={styles.block}>
-                            <Text>Wednesday 14 - Column A - Block 1</Text>
+                    <View style={styles.columnsContainer}>
+                        <View style={styles.column}>
+                            <View style={styles.block}>
+                                <Text>Wednesday 14 - Column A - Block 1</Text>
+                            </View>
+                            <View style={styles.block}>
+                                <Text>Wednesday 14 - Column A - Block 2</Text>
+                            </View>
                         </View>
-                        <View style={styles.block}>
-                            <Text>Wednesday 14 - Column A - Block 2</Text>
-                        </View>
-                        <View style={styles.block}>
-                            <Text>Wednesday 14 - Column B - Block 1</Text>
-                        </View>
-                        <View style={styles.block}>
-                            <Text>Wednesday 14 - Column B - Block 2</Text>
+                        <View style={styles.column}>
+                            <View style={styles.block}>
+                                <Text>Wednesday 14 - Column B - Block 1</Text>
+                            </View>
+                            <View style={styles.block}>
+                                <Text>Wednesday 14 - Column B - Block 2</Text>
+                            </View>
                         </View>
                     </View>
                 )}
                 {selectedButton === "Thursday 15" && (
-                    <View style={styles.column}>
-                        <View style={styles.block}>
-                            <Text>Thursday 15 - Column A - Block 1</Text>
+                    <View style={styles.columnsContainer}>
+                        <View style={styles.column}>
+                            <View style={styles.block}>
+                                <Text>Thursday 15 - Column A - Block 1</Text>
+                            </View>
+                            <View style={styles.block}>
+                                <Text>Thursday 15 - Column A - Block 2</Text>
+                            </View>
                         </View>
-                        <View style={styles.block}>
-                            <Text>Thursday 15 - Column A - Block 2</Text>
-                        </View>
-                        <View style={styles.block}>
-                            <Text>Thursday 15 - Column B - Block 1</Text>
-                        </View>
-                        <View style={styles.block}>
-                            <Text>Thursday 15 - Column B - Block 2</Text>
+                        <View style={styles.column}>
+                            <View style={styles.block}>
+                                <Text>Thursday 15 - Column B - Block 1</Text>
+                            </View>
+                            <View style={styles.block}>
+                                <Text>Thursday 15 - Column B - Block 2</Text>
+                            </View>
                         </View>
                     </View>
                 )}
@@ -101,8 +116,7 @@ export default function ProgramScreen() {
                         <View style={styles.block}>
                             <Text>Friday 16 - Column A - Block 2</Text>
                         </View>
-                        <View style={styles.block}>
-                            <Text>Friday 16 - Column B - Block 1</Text>
+                        <View style={styles.block}><Text>Friday 16 - Column B - Block 1</Text>
                         </View>
                         <View style={styles.block}>
                             <Text>Friday 16 - Column B - Block 2</Text>
@@ -168,20 +182,18 @@ const styles = StyleSheet.create({
     },
     columnsContainer: {
         flexDirection: "row",
-        justifyContent: "space-between",
         paddingHorizontal: 20,
-    },
+        justifyContent: "center", // Add this line
+        alignItems: "center", // Add this line
+      },
     column: {
         flex: 1,
-        flexDirection: "row",
-        justifyContent: "space-between",
+        flexDirection: "column", // Add this line
     },
     block: {
         backgroundColor: "lightblue",
         marginVertical: 10,
         padding: 10,
         borderRadius: 5,
-        flex: 1,
-        marginHorizontal: 5,
     },
 });
