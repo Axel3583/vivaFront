@@ -37,12 +37,12 @@ export default function ProgramScreen() {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.buttonContainer}>
-                    <TouchableOpacity
+                    {/* <TouchableOpacity
                         onPress={() => handleButtonPress("prev")}
                         style={[styles.button, styles.arrowButton]}
                     >
                         <Text style={styles.arrowButtonText}>{'<'}</Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
                     <TouchableOpacity
                         onPress={() => handleButtonPress("Wednesday 14")}
                         style={[
@@ -50,7 +50,7 @@ export default function ProgramScreen() {
                             selectedButton === "Wednesday 14" && styles.selectedButton,
                         ]}
                     >
-                        <Text style={styles.buttonText}>Wednesday 14</Text>
+                        <Text style={styles.buttonText}>Wed 14</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                         onPress={() => handleButtonPress("Thursday 15")}
@@ -59,7 +59,7 @@ export default function ProgramScreen() {
                             selectedButton === "Thursday 15" && styles.selectedButton,
                         ]}
                     >
-                        <Text style={styles.buttonText}>Thursday 15</Text>
+                        <Text style={styles.buttonText}>Thu 15</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                         onPress={() => handleButtonPress("Friday 16")}
@@ -68,7 +68,7 @@ export default function ProgramScreen() {
                             selectedButton === "Friday 16" && styles.selectedButton,
                         ]}
                     >
-                        <Text style={styles.buttonText}>Friday 16</Text>
+                        <Text style={styles.buttonText}>Fri 16</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                         onPress={() => handleButtonPress("Saturday 17")}
@@ -77,14 +77,14 @@ export default function ProgramScreen() {
                             selectedButton === "Saturday 17" && styles.selectedButton,
                         ]}
                     >
-                        <Text style={styles.buttonText}>Saturday 17</Text>
+                        <Text style={styles.buttonText}>Sat 17</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity
+                    {/* <TouchableOpacity
                         onPress={() => handleButtonPress("next")}
                         style={[styles.button, styles.arrowButton]}
                     >
                         <Text style={styles.arrowButtonText}>{'>'}</Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
                 </View>
                 <View style={styles.columnsContainer}>
                     {selectedButton === "Wednesday 14" && (
@@ -417,6 +417,124 @@ export default function ProgramScreen() {
                             </View>
                         </View>
                     )}
+                    {selectedButton === "Saturday 17" && (
+                        <View style={styles.columnsContainer}>
+                            <View style={styles.column}>
+                                <View style={styles.block}>
+                                    <LinearGradient
+                                        colors={['#5508a0', '#a1009b']}
+                                        start={{ x: 0, y: 0 }}
+                                        end={{ x: 1, y: 1 }}
+                                        angle={45}
+                                        style={styles.sessionDateContainer}
+                                    >
+                                        <View style={styles.dateContainer}>
+                                            <Text style={styles.dayText}>Sat</Text>
+                                            <Text style={styles.dayText}>17</Text>
+                                        </View>
+                                        <View style={styles.hourContainer}>
+                                            <MaterialCommunityIcons name="clock" size={20} color="white" style={styles.clockIcon} />
+                                            <Text style={styles.timeText}>14:30 - 15:15</Text>
+                                        </View>
+                                        <View style={styles.roomContainer}>
+                                            <MaterialCommunityIcons name="map-marker" size={20} color="white" style={styles.mapIcon} />
+                                            <Text style={styles.roomNameText}>Stage 2</Text>
+                                        </View>
+                                    </LinearGradient>
+                                    <LinearGradient
+                                        colors={['#5508a0', '#a1009b']}
+                                        start={{ x: 0, y: 0 }}
+                                        end={{ x: 1, y: 1 }}
+                                        angle={45}
+                                        style={styles.titleContainer}
+                                    >
+                                        <Text style={styles.firstTitleText}>Derrière les rideaux : découvrir les métiers des jeux vidéo</Text>
+                                        <Text style={styles.societyText}>Creator's Economy, Gaming & Metaverse</Text>
+                                    </LinearGradient>
+                                    <View style={styles.imageContainer}>
+                                        <View style={styles.circleImageContainer}>
+                                            <Image
+                                                source={require("../../assets/image/p5-1.png")}
+                                                style={styles.circleImage}
+                                            />
+                                        </View>
+                                        <View>
+                                            <Text style={styles.nameText}>Mickael Dell'ova</Text>
+                                            <Text style={styles.jobText}>Senior Player Experience Designer</Text>
+                                        </View>
+                                    </View>
+                                    <View style={styles.imageContainer}>
+                                        <View style={styles.circleImageContainer}>
+                                            <Image
+                                                source={require("../../assets/image/p5-2.png")}
+                                                style={styles.circleImage}
+                                            />
+                                        </View>
+                                        <View>
+                                            <Text style={styles.nameText}>Jonathan Duval</Text>
+                                            <Text style={styles.jobText}>Academic coordinator Game Section (ECV)</Text>
+                                        </View>
+                                    </View>
+                                </View>
+                                <View style={styles.block}>
+                                    <LinearGradient
+                                        colors={['#5508a0', '#a1009b']}
+                                        start={{ x: 0, y: 0 }}
+                                        end={{ x: 1, y: 1 }}
+                                        angle={45}
+                                        style={styles.sessionDateContainer}
+                                    >
+                                        <View style={styles.dateContainer}>
+                                            <Text style={styles.dayText}>Sat</Text>
+                                            <Text style={styles.dayText}>17</Text>
+                                        </View>
+                                        <View style={styles.hourContainer}>
+                                            <MaterialCommunityIcons name="clock" size={20} color="white" style={styles.clockIcon} />
+                                            <Text style={styles.timeText}>15:15 - 15:35</Text>
+                                        </View>
+                                        <View style={styles.roomContainer}>
+                                            <MaterialCommunityIcons name="map-marker" size={20} color="white" style={styles.mapIcon} />
+                                            <Text style={styles.roomNameText}>Stage 3</Text>
+                                        </View>
+                                    </LinearGradient>
+                                    <LinearGradient
+                                        colors={['#5508a0', '#a1009b']}
+                                        start={{ x: 0, y: 0 }}
+                                        end={{ x: 1, y: 1 }}
+                                        angle={45}
+                                        style={styles.titleContainer}
+                                    >
+                                        <Text style={styles.firstTitleText}>La FrenchTech au-delà de Paris ?</Text>
+                                        <Text style={styles.societyText}>Building Future Societies, Scaling up</Text>
+                                    </LinearGradient>
+                                    <View style={styles.imageContainer}>
+                                        <View style={styles.circleImageContainer}>
+                                            <Image
+                                                source={require("../../assets/image/p5-3.png")}
+                                                style={styles.circleImage}
+                                            />
+                                        </View>
+                                        <View>
+                                            <Text style={styles.nameText}>Thomas Benzazon</Text>
+                                            <Text style={styles.jobText}>Co-Founder (FEUILLEBLANCHE)</Text>
+                                        </View>
+                                    </View>
+                                    <View style={styles.imageContainer}>
+                                        <View style={styles.circleImageContainer}>
+                                            <Image
+                                                source={require("../../assets/image/p5-4.png")}
+                                                style={styles.circleImage}
+                                            />
+                                        </View>
+                                        <View>
+                                            <Text style={styles.nameText}>Hawa Dramé</Text>
+                                            <Text style={styles.jobText}>Founder (TIME2START)</Text>
+                                        </View>
+                                    </View>
+                                </View>
+                            </View>
+                        </View>
+                    )}
                 </View>
             </View>
         </ScrollView>
@@ -456,15 +574,16 @@ const styles = StyleSheet.create({
     button: {
         paddingHorizontal: 10,
         paddingVertical: 5,
-        backgroundColor: "lightgray",
-        borderRadius: 5,
-        marginRight: 10,
+        backgroundColor: "#1d6ff7",
+        borderRadius: 20,
+        marginRight: 5,
     },
     selectedButton: {
-        backgroundColor: "gray",
+        backgroundColor: "#1d71f724",
     },
     buttonText: {
         fontWeight: "bold",
+        color: "white",
     },
     arrowButton: {
         paddingHorizontal: 10,
@@ -515,7 +634,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
     },
     imageContainer: {
-        justifyContent: "space-between",
+
         backgroundColor: "white",
         padding: 10,
         borderWidth: 1,
