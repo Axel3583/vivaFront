@@ -1,18 +1,27 @@
-import React from "react";
-import {
-  StyleSheet,
-  View,
-  TextInput,
-  TouchableOpacity,
-  Text,
-} from "react-native";
+import React, { useState, useEffect } from "react";
+import { StyleSheet, View, Text, TextInput } from "react-native";
 
-const TicketInput = ({
-  ticketCode,
-  handleTicketCodeChange,
-  handleTicketCodeSubmit,
-  handleGoBack,
-}) => {
+const TicketInput = () => {
+  const [ticketCode, setTicketCode] = useState("");
+  const [qrCodeValue, setQRCodeValue] = useState("");
+
+  useEffect(() => {
+    if (ticketCode.trim() !== "") {
+      fetch(`http://localhost:3000/tickets/${ticketCode}`)
+        .then((response) => response.json())
+        .then((data) => {
+          setQRCodeValue(data.code);
+        })
+        .catch((error) => {
+          console.error("Error fetching ticket code:", error);
+        });
+    }
+  }, [ticketCode]);
+
+  const handleTicketCodeChange = (code) => {
+    setTicketCode(code);
+  };
+
   return (
     <View style={styles.container}>
       <TextInput
@@ -21,17 +30,14 @@ const TicketInput = ({
         value={ticketCode}
         placeholder="Enter ticket code"
       />
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={handleTicketCodeSubmit}
-        >
-          <Text style={styles.buttonText}>Envoyer</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={handleGoBack}>
-          <Text style={styles.buttonText}>Retour</Text>
-        </TouchableOpacity>
-      </View>
+      {qrCodeValue ? (
+        <View style={styles.qrCodeContainer}>
+          <QRCode value={qrCodeValue} size={200} />
+          <TouchableOpacity style={styles.button} onPress={() => setQRCodeValue("")}>
+            <Text style={styles.buttonText}>New QR Code</Text>
+          </TouchableOpacity>
+        </View>
+      ) : null}
     </View>
   );
 };
@@ -64,14 +70,17 @@ const styles = StyleSheet.create({
     backgroundColor: "#BE2B3E",
     padding: 10,
     borderRadius: 5,
-    alignItems: 'flex-start',
+    alignItems: "center",
     marginHorizontal: 5,
   },
   buttonText: {
-    color: '#fff',
+    color: "#fff",
     fontWeight: "bold",
     textAlign: "center",
-    fontFamily: 'MuseoSans_500'
+    fontFamily: "MuseoSans_500",
+  },
+  qrCodeContainer: {
+    alignItems: "center",
   },
 });
 

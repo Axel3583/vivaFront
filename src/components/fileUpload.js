@@ -137,12 +137,12 @@ const styles = StyleSheet.create({
         fontSize: width < 380 ? 14 : 16,
         marginTop: width < 380 ? 10 : 12,
         fontFamily: 'MuseoSans_700',
-        color: '#E47B24',
+       
     },
     fileTypes: {
         fontSize: width < 380 ? 14 : 16,
         marginTop: width < 380 ? 5 : 8,
         fontFamily: 'MuseoSans_500',
-        color: '#E47B24',
+        
     }
 });
