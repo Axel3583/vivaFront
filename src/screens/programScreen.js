@@ -8,6 +8,8 @@ import {
     Dimensions,
 } from "react-native";
 
+import { ScrollView } from "react-native";
+
 import { LinearGradient } from 'expo-linear-gradient';
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -24,130 +26,294 @@ export default function ProgramScreen() {
     };
 
     return (
-        <View style={styles.container}>
-            <View style={styles.logoContainer}>
-                <TouchableOpacity onPress={handleLogoPress}>
-                    <Image
-                        source={require("../../assets/image/logo-v.png")}
-                        style={styles.logo}
-                    />
-                </TouchableOpacity>
-            </View>
-            <View style={styles.buttonContainer}>
-                <TouchableOpacity
-                    onPress={() => handleButtonPress("prev")}
-                    style={[styles.button, styles.arrowButton]}
-                >
-                    <Text style={styles.arrowButtonText}>{'<'}</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={() => handleButtonPress("Wednesday 14")}
-                    style={[
-                        styles.button,
-                        selectedButton === "Wednesday 14" && styles.selectedButton,
-                    ]}
-                >
-                    <Text style={styles.buttonText}>Wednesday 14</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={() => handleButtonPress("Thursday 15")}
-                    style={[
-                        styles.button,
-                        selectedButton === "Thursday 15" && styles.selectedButton,
-                    ]}
-                >
-                    <Text style={styles.buttonText}>Thursday 15</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={() => handleButtonPress("Friday 16")}
-                    style={[
-                        styles.button,
-                        selectedButton === "Friday 16" && styles.selectedButton,
-                    ]}
-                >
-                    <Text style={styles.buttonText}>Friday 16</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={() => handleButtonPress("Saturday 17")}
-                    style={[
-                        styles.button,
-                        selectedButton === "Saturday 17" && styles.selectedButton,
-                    ]}
-                >
-                    <Text style={styles.buttonText}>Saturday 17</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={() => handleButtonPress("next")}
-                    style={[styles.button, styles.arrowButton]}
-                >
-                    <Text style={styles.arrowButtonText}>{'>'}</Text>
-                </TouchableOpacity>
-            </View>
-            <View style={styles.columnsContainer}>
-                {selectedButton === "Wednesday 14" && (
-                    <View style={styles.columnsContainer}>
-                        <View style={styles.column}>
-                            <View style={styles.block}>
-                                <LinearGradient
-                                    colors={['#5508a0', '#a1009b']}
-                                    start={{ x: 0, y: 0 }}
-                                    end={{ x: 1, y: 1 }}
-                                    angle={45}
-                                    style={styles.sessionDateContainer}
-                                >
-                                    <View style={styles.dateContainer}>
-                                        <Text style={styles.dayText}>Wed</Text>
-                                        <Text style={styles.dayText}>14</Text>
+        <ScrollView contentContainerStyle={styles.scrollContainer}>
+            <View style={styles.container}>
+                <View style={styles.logoContainer}>
+                    <TouchableOpacity onPress={handleLogoPress}>
+                        <Image
+                            source={require("../../assets/image/logo-v.png")}
+                            style={styles.logo}
+                        />
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.buttonContainer}>
+                    <TouchableOpacity
+                        onPress={() => handleButtonPress("prev")}
+                        style={[styles.button, styles.arrowButton]}
+                    >
+                        <Text style={styles.arrowButtonText}>{'<'}</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => handleButtonPress("Wednesday 14")}
+                        style={[
+                            styles.button,
+                            selectedButton === "Wednesday 14" && styles.selectedButton,
+                        ]}
+                    >
+                        <Text style={styles.buttonText}>Wednesday 14</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => handleButtonPress("Thursday 15")}
+                        style={[
+                            styles.button,
+                            selectedButton === "Thursday 15" && styles.selectedButton,
+                        ]}
+                    >
+                        <Text style={styles.buttonText}>Thursday 15</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => handleButtonPress("Friday 16")}
+                        style={[
+                            styles.button,
+                            selectedButton === "Friday 16" && styles.selectedButton,
+                        ]}
+                    >
+                        <Text style={styles.buttonText}>Friday 16</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => handleButtonPress("Saturday 17")}
+                        style={[
+                            styles.button,
+                            selectedButton === "Saturday 17" && styles.selectedButton,
+                        ]}
+                    >
+                        <Text style={styles.buttonText}>Saturday 17</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => handleButtonPress("next")}
+                        style={[styles.button, styles.arrowButton]}
+                    >
+                        <Text style={styles.arrowButtonText}>{'>'}</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.columnsContainer}>
+                    {selectedButton === "Wednesday 14" && (
+                        <View style={styles.columnsContainer}>
+                            <View style={styles.column}>
+                                <View style={styles.block}>
+                                    <LinearGradient
+                                        colors={['#5508a0', '#a1009b']}
+                                        start={{ x: 0, y: 0 }}
+                                        end={{ x: 1, y: 1 }}
+                                        angle={45}
+                                        style={styles.sessionDateContainer}
+                                    >
+                                        <View style={styles.dateContainer}>
+                                            <Text style={styles.dayText}>Wed</Text>
+                                            <Text style={styles.dayText}>14</Text>
+                                        </View>
+                                        <View style={styles.hourContainer}>
+                                            <MaterialCommunityIcons name="clock" size={20} color="white" style={styles.clockIcon} />
+                                            <Text style={styles.timeText}>10:00 - 10:15</Text>
+                                        </View>
+                                        <View style={styles.roomContainer}>
+                                            <MaterialCommunityIcons name="map-marker" size={20} color="white" style={styles.mapIcon} />
+                                            <Text style={styles.roomNameText}>Stage 3</Text>
+                                        </View>
+                                    </LinearGradient>
+                                    <LinearGradient
+                                        colors={['#5508a0', '#a1009b']}
+                                        start={{ x: 0, y: 0 }}
+                                        end={{ x: 1, y: 1 }}
+                                        angle={45}
+                                        style={styles.titleContainer}
+                                    >
+                                        <Text style={styles.firstTitleText}>(Un)Expected Trends: Digging into Deeptech</Text>
+                                        <Text style={styles.societyText}>DeepTech</Text>
+                                    </LinearGradient>
+                                    <View style={styles.imageContainer}>
+                                        <View style={styles.circleImageContainer}>
+                                            <Image
+                                                source={require("../../assets/image/p1.png")}
+                                                style={styles.circleImage}
+                                            />
+                                        </View>
+                                        <View>
+                                            <Text style={styles.nameText}>Anne-Sophie Carresse</Text>
+                                            <Text style={styles.jobText}>Partner (ELAIA PARTNERS)</Text>
+                                        </View>
                                     </View>
-                                    <View style={styles.hourContainer}>
-                                        <MaterialCommunityIcons name="clock" size={20} color="white" style={styles.clockIcon} />
-                                        <Text style={styles.timeText}>10:00 - 10:15</Text>
+                                </View>
+                                <View style={styles.block}>
+                                    <LinearGradient
+                                        colors={['#5508a0', '#a1009b']}
+                                        start={{ x: 0, y: 0 }}
+                                        end={{ x: 1, y: 1 }}
+                                        angle={45}
+                                        style={styles.sessionDateContainer}
+                                    >
+                                        <View style={styles.dateContainer}>
+                                            <Text style={styles.dayText}>Wed</Text>
+                                            <Text style={styles.dayText}>14</Text>
+                                        </View>
+                                        <View style={styles.hourContainer}>
+                                            <MaterialCommunityIcons name="clock" size={20} color="white" style={styles.clockIcon} />
+                                            <Text style={styles.timeText}>10:00 - 10:40</Text>
+                                        </View>
+                                        <View style={styles.roomContainer}>
+                                            <MaterialCommunityIcons name="map-marker" size={20} color="white" style={styles.mapIcon} />
+                                            <Text style={styles.roomNameText}>Stage 2</Text>
+                                        </View>
+                                    </LinearGradient>
+                                    <LinearGradient
+                                        colors={['#5508a0', '#a1009b']}
+                                        start={{ x: 0, y: 0 }}
+                                        end={{ x: 1, y: 1 }}
+                                        angle={45}
+                                        style={styles.titleContainer}
+                                    >
+                                        <Text style={styles.firstTitleText}>Europe’s Energy: From Crisis to Catalyst</Text>
+                                        <Text style={styles.societyText}>Energy & Climate Tech</Text>
+                                    </LinearGradient>
+                                    <View style={styles.imageContainer}>
+                                        <View style={styles.circleImageContainer}>
+                                            <Image
+                                                source={require("../../assets/image/p2-1.png")}
+                                                style={styles.circleImage}
+                                            />
+                                        </View>
+                                        <View>
+                                            <Text style={styles.nameText}>Dimitri Carbonnelle</Text>
+                                            <Text style={styles.jobText}>CEO (LIVOSPHERE)</Text>
+                                        </View>
                                     </View>
-                                    <View style={styles.roomContainer}>
-                                        <MaterialCommunityIcons name="map-marker" size={20} color="white" style={styles.mapIcon} />
-                                        <Text style={styles.roomNameText}>Stage 3</Text>
+                                    <View style={styles.imageContainer}>
+                                        <View style={styles.circleImageContainer}>
+                                            <Image
+                                                source={require("../../assets/image/p2-2.png")}
+                                                style={styles.circleImage}
+                                            />
+                                        </View>
+                                        <View>
+                                            <Text style={styles.nameText}>Tim Gould</Text>
+                                            <Text style={styles.jobText}>Chief Energy Economist (International Energy Agency)</Text>
+                                        </View>
                                     </View>
-                                </LinearGradient>
-                                <LinearGradient
-                                    colors={['#5508a0', '#a1009b']}
-                                    start={{ x: 0, y: 0 }}
-                                    end={{ x: 1, y: 1 }}
-                                    angle={45}
-                                    style={styles.titleContainer}
-                                >
-                                    <Text style={styles.firstTitleText}>(Un)Expected Trends: Digging into Deeptech</Text>
-                                    <Text style={styles.societyText}>DeepTech</Text>
-                                </LinearGradient>
-                                <View style={styles.imageContainer}>
-                                    <View style={styles.circleImageContainer}>
-                                        <Image
-                                            source={require("../../assets/image/p1.png")}
-                                            style={styles.circleImage}
-                                        />
-                                    </View>
-                                    <View>
-                                        <Text style={styles.nameText}>Anne-Sophie CARRESE</Text>
-                                        <Text style={styles.jobText}>Partner (ELAIA PARTNERS)</Text>
+                                    <View style={styles.imageContainer}>
+                                        <View style={styles.circleImageContainer}>
+                                            <Image
+                                                source={require("../../assets/image/p2-3.png")}
+                                                style={styles.circleImage}
+                                            />
+                                        </View>
+                                        <View>
+                                            <Text style={styles.nameText}>Ann Mettler</Text>
+                                            <Text style={styles.jobText}>Vice-President, Europe (Breakthrough Energy)</Text>
+                                        </View>
                                     </View>
                                 </View>
                             </View>
-                            <View style={styles.block}>
-                                <Text>Wednesday 14 - Column A - Block 2</Text>
+                        </View>
+                    )}
+                    {selectedButton === "Thursday 15" && (
+                        <View style={styles.columnsContainer}>
+                            <View style={styles.column}>
+                                <View style={styles.block}>
+                                    <LinearGradient
+                                        colors={['#5508a0', '#a1009b']}
+                                        start={{ x: 0, y: 0 }}
+                                        end={{ x: 1, y: 1 }}
+                                        angle={45}
+                                        style={styles.sessionDateContainer}
+                                    >
+                                        <View style={styles.dateContainer}>
+                                            <Text style={styles.dayText}>Thu</Text>
+                                            <Text style={styles.dayText}>15</Text>
+                                        </View>
+                                        <View style={styles.hourContainer}>
+                                            <MaterialCommunityIcons name="clock" size={20} color="white" style={styles.clockIcon} />
+                                            <Text style={styles.timeText}>11:40 - 12:05</Text>
+                                        </View>
+                                        <View style={styles.roomContainer}>
+                                            <MaterialCommunityIcons name="map-marker" size={20} color="white" style={styles.mapIcon} />
+                                            <Text style={styles.roomNameText}>Stage 3</Text>
+                                        </View>
+                                    </LinearGradient>
+                                    <LinearGradient
+                                        colors={['#5508a0', '#a1009b']}
+                                        start={{ x: 0, y: 0 }}
+                                        end={{ x: 1, y: 1 }}
+                                        angle={45}
+                                        style={styles.titleContainer}
+                                    >
+                                        <Text style={styles.firstTitleText}>Founder Story: The Power of Mentorship</Text>
+                                        <Text style={styles.societyText}>Scaling Up</Text>
+                                    </LinearGradient>
+                                    <View style={styles.imageContainer}>
+                                        <View style={styles.circleImageContainer}>
+                                            <Image
+                                                source={require("../../assets/image/p3-1.png")}
+                                                style={styles.circleImage}
+                                            />
+                                        </View>
+                                        <View>
+                                            <Text style={styles.nameText}>John Chambers</Text>
+                                            <Text style={styles.jobText}>CEO (JC2 VENTURES)</Text>
+                                        </View>
+                                    </View>
+                                    <View style={styles.imageContainer}>
+                                        <View style={styles.circleImageContainer}>
+                                            <Image
+                                                source={require("../../assets/image/p3-2.jpeg")}
+                                                style={styles.circleImage}
+                                            />
+                                        </View>
+                                        <View>
+                                            <Text style={styles.nameText}>Umesh Sachdev</Text>
+                                            <Text style={styles.jobText}>CEO and Co-Founder(UNIPHORE)</Text>
+                                        </View>
+                                    </View>
+                                </View>
+                                <View style={styles.block}>
+                                    <LinearGradient
+                                        colors={['#5508a0', '#a1009b']}
+                                        start={{ x: 0, y: 0 }}
+                                        end={{ x: 1, y: 1 }}
+                                        angle={45}
+                                        style={styles.sessionDateContainer}
+                                    >
+                                        <View style={styles.dateContainer}>
+                                            <Text style={styles.dayText}>Thu</Text>
+                                            <Text style={styles.dayText}>15</Text>
+                                        </View>
+                                        <View style={styles.hourContainer}>
+                                            <MaterialCommunityIcons name="clock" size={20} color="white" style={styles.clockIcon} />
+                                            <Text style={styles.timeText}>12:10 - 12:30</Text>
+                                        </View>
+                                        <View style={styles.roomContainer}>
+                                            <MaterialCommunityIcons name="map-marker" size={20} color="white" style={styles.mapIcon} />
+                                            <Text style={styles.roomNameText}>Stage 2</Text>
+                                        </View>
+                                    </LinearGradient>
+                                    <LinearGradient
+                                        colors={['#5508a0', '#a1009b']}
+                                        start={{ x: 0, y: 0 }}
+                                        end={{ x: 1, y: 1 }}
+                                        angle={45}
+                                        style={styles.titleContainer}
+                                    >
+                                        <Text style={styles.firstTitleText}>Start-Up Ecosystem: Taking the Pulse in Latin America</Text>
+                                        <Text style={styles.societyText}>Scalling up</Text>
+                                    </LinearGradient>
+                                    <View style={styles.imageContainer}>
+                                        <View style={styles.circleImageContainer}>
+                                            <Image
+                                                source={require("../../assets/image/p3-3.png")}
+                                                style={styles.circleImage}
+                                            />
+                                        </View>
+                                        <View>
+                                            <Text style={styles.nameText}>Pierre Schurmann</Text>
+                                            <Text style={styles.jobText}>CEO (NUVINI)</Text>
+                                        </View>
+                                    </View>
+                                </View>
                             </View>
                         </View>
-                        <View style={styles.column}>
-                            <View style={styles.block}>
-                                <Text>Wednesday 14 - Column B - Block 1</Text>
-                            </View>
-                            <View style={styles.block}>
-                                <Text>Wednesday 14 - Column B - Block 2</Text>
-                            </View>
-                        </View>
-                    </View>
-                )}
-                {/* Render other selectedButton conditions */}
+                    )}
+                </View>
             </View>
-        </View>
+        </ScrollView>
     );
 };
 
@@ -158,6 +324,9 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         flexDirection: "column",
+    },
+    scrollContainer: {
+        flexGrow: 1,
     },
     logoContainer: {
         position: "absolute",
@@ -176,6 +345,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 20,
         marginLeft: 20,
         marginRight: 20,
+        marginTop: 150,
     },
     button: {
         paddingHorizontal: 10,
@@ -204,6 +374,9 @@ const styles = StyleSheet.create({
     columnsContainer: {
         flexDirection: "column",
         paddingHorizontal: 10,
+        width: 390,
+        justifyContent: 'center',
+        alignItems: "center",
     },
     column: {
         // alignItems: "center",
@@ -261,6 +434,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: "black",
         fontFamily: "MuseoSans_500",
+        alignItems: "center",
     },
     jobText: {
         color: "gray",
