@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { StyleSheet } from 'react-native';
-import { View, Text, TouchableOpacity, Dimensions } from 'react-native';
+import { View, Text, TouchableOpacity, Dimensions,FlatList,ScrollView } from 'react-native';
+import List from "./list";
 
 export default function VivaTech() {
     const [isHovered, setIsHovered] = useState(false);
@@ -15,15 +16,14 @@ export default function VivaTech() {
                 activeOpacity={0.8}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave} >
+                <ScrollView>
                 <View style={[styles.cardContainer, { shadowColor: isHovered ? '#000' : 'black' }]}>
                     <View style={styles.cardContent}>
-                        <Text style={styles.cardTitle}>Card Title</Text>
-                        <Text style={styles.cardText}> 
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua.
-                        </Text>
+                        <Text style={styles.cardTitle}>Liste des exposants</Text>
+                        <List/>
                     </View>
                 </View>
+            </ScrollView>
             </TouchableOpacity>
         </View>);
 }
@@ -49,11 +49,7 @@ const styles = StyleSheet.create({
         width: '100%', // Utiliser un pourcentage pour la largeur 
         height: '100%', // Utiliser un pourcentage pour la hauteur 
         backgroundColor: '#fff',
-        borderRadius: 15,
-        shadowOffset: { width: 0, height: 1 },
-        shadowOpacity: 0.3,
-        shadowRadius: 3,
-        elevation: 3,
+        
     },
     cardContent: {
         padding: 20,

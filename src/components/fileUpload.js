@@ -75,7 +75,7 @@ export default function FileUpload({ files, setFiles, removeFile }) {
                 </TouchableOpacity>
             </View>
             <Text style={styles.supportText}>Format</Text>
-            <Text style={styles.fileTypes}>PDF, JPG, PNG, SVG</Text>
+            <Text style={styles.fileTypes}>PDF, JPG, PNG</Text>
         </View>
     )
 }

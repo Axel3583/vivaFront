@@ -1,0 +1,684 @@
+[
+    {
+      "title": "1Kubator",
+      "label": "Consulting"
+    },
+    {
+      "title": "3DOM Alliance Inc.",
+      "label": "Energy"
+    },
+    {
+      "title": "Académie franco-allemande pour l'Industrie du Futur",
+      "label": "Government/Public institutions"
+    },
+    {
+        "title": "Africanews",
+        "label": "Media/Entertainment/Culture"
+      },
+      {
+        "title": "AfricaTech Lab",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Ag Partners Publicis Africa",
+        "label": "Marketing/Advertising/Communication"
+      },
+      {
+        "title": "AgroParisTech",
+        "label": "Government/Public institutions"
+      }
+      ,
+      {
+        "title": "AIR LIQUIDE",
+        "label": "Industry"
+      }
+      ,
+      {
+        "title": "Alibaba",
+        "label": "Others"
+      },
+      {
+        "title": "Allemagne - Bayern International (Bavière)",
+        "label": "None"
+      },
+      {
+        "title": "Allemagne - Digital Hub Initiative (de:hub) ",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Art Graphique & Patrimoine - Memorist ",
+        "label": "Media/Entertainment/Culture"
+      },
+      {
+        "title": "Artefact",
+        "label": "Consulting"
+      },
+      {
+        "title": "Audi",
+        "label": "Mobility/Transportation"
+      },
+      {
+        "title": "AWS / AMAZON",
+        "label": "None"
+      },
+      {
+        "title": "Axa",
+        "label": "Banking/Finance/Insurance/Legal"
+      },
+      {
+        "title": "AYMING",
+        "label": "Consulting"
+      },
+      {
+        "title": "Banque de France",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "BE GREEN",
+        "label": "Mobility/Transportation"
+      },
+      {
+        "title": "BearingPoint",
+        "label": "Consulting"
+      },
+      {
+        "title": "Belgique - Hub Brussels",
+        "label": "None"
+      },
+      {
+        "title": "Belgium",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Belgium - Wallonia / AWEX",
+        "label": "Government/Public institutionsg"
+      },
+      {
+        "title": "Bloomflow",
+        "label": "Software Development/Cloud services"
+      },
+      {
+        "title": "BNP PARIBAS",
+        "label": "Banking/Finance/Insurance/Legal"
+      },
+      {
+        "title": "Brésil - Ambassade du Brésil",
+        "label": "Government/Public institutionsg"
+      },
+      {
+        "title": "Brevo (formerly Sendinblue)",
+        "label": "Software Development/Cloud services"
+      },
+      {
+        "title": "Builder.ai",
+        "label": "Software Development/Cloud services"
+      },
+      {
+        "title": "CAPGEMINI",
+        "label": "Consulting"
+      },
+      {
+        "title": "CCI Paris Ile-de-France",
+        "label": "Government/Public institutionsg"
+      },
+      {
+        "title": "Chambre Franco-Allemande de Commerce et d'Industrie",
+        "label": "Industry"
+      },
+      {
+        "title": "Choose Paris Region",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "CMA CGM",
+        "label": "Mobility/Transportation"
+      },
+      {
+        "title": "CNRS",
+        "label": "Government/Public institutionsg"
+      },
+      {
+        "title": "Crédit Agricole Group",
+        "label": "Banking/Finance/Insurance/Legal"
+      },
+      {
+        "title": "D3 Innovation Hub",
+        "label": "Non-profit"
+      },
+      {
+        "title": "DELL TECHNOLOGIES",
+        "label": "Information technologies"
+      },
+      {
+        "title": "Deutsch-Französische Hochschule / Université franco-allemande (DFH-UFA)",
+        "label": "HR/Training/Education"
+      },
+      {
+        "title": "Deutsches Forschungszentrum für  Künstliche Intelligenz DFKI",
+        "label": "Information technologies"
+      },
+      {
+        "title": "Digital Experiences & AI Park by BlueJeans by Verizon",
+        "label": "Media/Entertainment/Culture"
+      },
+      {
+        "title": "Direction interministérielle du Numérique (DINUM)",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Driveco",
+        "label": "Mobility/Transportation"
+      },
+      {
+        "title": "Ecole Nationale Supérieure d'Arts et Métiers",
+        "label": "HR/Training/Education"
+      },
+      {
+        "title": "EDENRED",
+        "label": "Personnal Service"
+      },
+      {
+        "title": "EDF",
+        "label": "Energy"
+      },
+      {
+        "title": "Emperia",
+        "label": "Software Development/Cloud services"
+      },
+      {
+        "title": "ENEDIS",
+        "label": "Energy"
+      },
+      {
+        "title": "Engie",
+        "label": "Energy"
+      },
+      {
+        "title": "EQUIP CLUB",
+        "label": "Other"
+      },
+      {
+        "title": "ESPAGNE - SPAIN UP NATION ",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Ether",
+        "label": "Banking/Finance/Insurance/Legal"
+      },
+      {
+        "title": "Euronews",
+        "label": "Media/Entertainment/Culture"
+      },
+      {
+        "title": "European innovation Council - EICn",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Ey",
+        "label": "consulting"
+      },
+      {
+        "title": "Famoco",
+        "label": "Mobility/Transportation"
+      },
+      {
+        "title": "FemTech France",
+        "label": "Health"
+      },
+      {
+        "title": "Fingerprint",
+        "label": "Software Development/Cloud services"
+      },
+      {
+        "title": "Food & Retail Park by Carrefour",
+        "label": "Food"
+      },
+      {
+        "title": "France Esports",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "French State X Digital",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "French-German Tech Lab / Germany",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Gaia-X French Hub",
+        "label": "Non-profit"
+      },
+      {
+        "title": "GOOGLE",
+        "label": "Marketing/Advertising/Communication"
+      },
+      {
+        "title": "Government of Canada",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "GROUPE ADP",
+        "label": "Other"
+      },
+      {
+        "title": "GROUPE BOUYGUES",
+        "label": "Smart city/Building"
+      },
+      {
+        "title": "GROUPE FDJ",
+        "label": "Media/Entertainment/Culture"
+      },
+      {
+        "title": "Groupe SNCF",
+        "label": "Mobility/Transportation"
+      },
+      {
+        "title": "GYEONGGI-DO DX Zone",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Highspot",
+        "label": "Software Development/Cloud services"
+      },
+      {
+        "title": "HQI",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "HUAWEI",
+        "label": "Telecom/Connectivity"
+      },
+      {
+        "title": "IBM",
+        "label": "Information technologies"
+      },
+      {
+        "title": "iExec Blockchain Tech",
+        "label": "Other"
+      },
+      {
+        "title": "Imki",
+        "label": "Luxury/Fashion/Beauty"
+      },
+      {
+        "title": "Impact Mile Human by VivaTech",
+        "label": "Other"
+      },
+      {
+        "title": "Impact Mile Planet by EDF",
+        "label": "Energy"
+      },
+      {
+        "title": "Inria",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Institut Mines-Telecom",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Institut Polytechnique de Paris",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Intercloud",
+        "label": "Software Development/Cloud services"
+      },
+      {
+        "title": "International Finance Corporation",
+        "label": "Banking/Finance/Insurance/Legal"
+      },
+      {
+        "title": "Invest in Türkiye",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Invest Saudi",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Italy - ITA - Invest in Italy",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "JCDECAUX",
+        "label": "Marketing/Advertising/Communication"
+      },
+      {
+        "title": "K-STARTUP",
+        "label": "Other"
+      },
+      {
+        "title": "KB CRAWL",
+        "label": "Information technologies"
+      },
+      {
+        "title": "KINEIS",
+        "label": "Telecom/Connectivity"
+      },
+      {
+        "title": "KOSME X Embassy of the Republic of Korea  in France",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "L'Escalator",
+        "label": "Other"
+      },
+      {
+        "title": "L'OREAL GROUPE",
+        "label": "Luxury/Fashion/Beauty"
+      },
+      {
+        "title": "LA GRANDE ECOLE DU NUMERIQUE",
+        "label": "HR/Training/Education"
+      },
+      {
+        "title": "LA POSTE GROUPE",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "LAVOIX",
+        "label": "Banking/Finance/Insurance/Legal"
+      },
+      {
+        "title": "Le Lab RH",
+        "label": "HR/Training/Education"
+      },
+      {
+        "title": "LeHibou",
+        "label": "Information technologies"
+      },
+      {
+        "title": "Liban - CEDARSTECH",
+        "label": "Non-profit"
+      },
+      {
+        "title": "Manta5 Hydrofoil Bikes",
+        "label": "Mobility/Transportation"
+      },
+      {
+        "title": "Meta",
+        "label": "Other"
+      },
+      {
+        "title": "Métropole du Grand Paris",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Microsoft",
+        "label": "Software Development/Cloud services"
+      },
+      {
+        "title": "Ministère des Armées",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Ministry of High-Tech Industry of the Republic of Armenia",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Ministry of SMEs and Startups",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Mobility & Smart City Park by TOGG",
+        "label": "Mobility/Transportation"
+      },
+      {
+        "title": "Montpellier Méditerranée Métropole",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Nagarro",
+        "label": "Information technologies"
+      },
+      {
+        "title": "NeoSOFT",
+        "label": "Information technologies"
+      },
+      {
+        "title": "New Caledonian Tech",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "New Zealand Trade & Enterprise Agency",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "NOUVELLE CALEDONIE - French Tech",
+        "label": "Non-profit"
+      },
+      {
+        "title": "NOUVELLE CALEDONIE - OPEN NC",
+        "label": "Others"
+      },
+      {
+        "title": "NOUVELLE CALEDONIE - Pôle Innovation ADECAL...",
+        "label": "Consulting"
+      },
+      {
+        "title": "NRW. Global Business GmbH",
+        "label": "Other"
+      },
+      {
+        "title": "Oppo",
+        "label": "Telecom/Connectivity"
+      },
+      {
+        "title": "Orange",
+        "label": "Telecom/Connectivity"
+      },
+      {
+        "title": "Organisation internationale de la francophonie (OIF)",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "P3 France",
+        "label": "Mobility/Transportation"
+      },
+      {
+        "title": "Pakistan Software Export Board",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Parc d'innovation de l'Artois",
+        "label": "Other"
+      },
+      {
+        "title": "Pays-Bas - Netherlands Enterprise Agency (RVO)",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Perfect Corp",
+        "label": "Software Development/Cloud services"
+      },
+      {
+        "title": "PICCA ELECTRONICS",
+        "label": "Industry"
+      },
+      {
+        "title": "PIXELLOT",
+        "label": "Other"
+      },
+      {
+        "title": "PlayPlay",
+        "label": "Software Development/Cloud services"
+      },
+      {
+        "title": "Polish Investment and Trade Agency - PAIH",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Preligens",
+        "label": "Cybersecurity/Defense"
+      },
+      {
+        "title": "PUBLICIS GROUPE",
+        "label": "Marketing/Advertising/Communication"
+      },
+      {
+        "title": "publicis sapiens",
+        "label": "consulting"
+      },
+      {
+        "title": "PWC",
+        "label": "consulting"
+      },
+      {
+        "title": "Québec ",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "RATP GROUP",
+        "label": "Mobility/Transportation"
+      },
+      {
+        "title": "Région Auvergne-Rhônes Alpes",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Région Centre-Val de Loire",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Région Corse - ADEC",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Région Île-de-France",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Région Nouvelle-Aquitaine",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Région Occitanie - AD'OCC",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Région Pays de la Loire",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Région Sud",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "République de Côte d'Ivoire",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Réseau SATT",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Saarland Innovation und Standort e.V",
+        "label": "Other"
+      },
+      {
+        "title": "Sanofi",
+        "label": "Health"
+      },
+      {
+        "title": "SIEMENS",
+        "label": "Industry"
+      },
+      {
+        "title": "SILIKIN VILLAGE",
+        "label": "Other"
+      },
+      {
+        "title": "SINGA",
+        "label": "Non-profit"
+      },
+      {
+        "title": "South Africa (Afrique du Sud) - WESGRO",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Sport Park",
+        "label": "Other"
+      },
+      {
+        "title": "Startup Luxembourg",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "STREAMWIDE",
+        "label": "Software Development/Cloud services"
+      },
+      {
+        "title": "swisstech",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Taiwan Pavilion: Taiwan Tech Arena (TTA)",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Technical University of Munich (TUM), German-French Academy for the Industry of the Future (GFA)",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Telesign",
+        "label": "Information technologies"
+      },
+      {
+        "title": "The Adecco Group",
+        "label": "HR/Training/Education"
+      },
+      {
+        "title": "The AI Journal",
+        "label": "Marketing/Advertising/Communication"
+      },
+      {
+        "title": "The Nest by Webhelp",
+        "label": "Other"
+      },
+      {
+        "title": "Togg",
+        "label": "Mobility/Transportation"
+      },
+      {
+        "title": "TotalEnergies",
+        "label": "Energy"
+      },
+      {
+        "title": "Tunisie - Ministry of Communication Technologies",
+        "label": "Information technologies"
+      },
+      {
+        "title": "United Robotics Group",
+        "label": "Industry"
+      },
+      {
+        "title": "Université Paris-Saclay",
+        "label": "Government/Public institutions"
+      },
+      {
+        "title": "Vianeo",
+        "label": "Software Development/Cloud services"
+      },
+      {
+        "title": "Vimeo",
+        "label": "Software Development/Cloud services"
+      },
+      {
+        "title": "VO2 GROUP",
+        "label": "consulting"
+      },
+      {
+        "title": "WAVESTONE",
+        "label": "consulting"
+      },
+      {
+        "title": "WE ARE NORMANDY",
+        "label": "Non-profit"
+      },
+      {
+        "title": "World Knowledge Forum",
+        "label": "Media/Entertainment/Culture"
+      }
+  ]
