@@ -1,11 +1,12 @@
-import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import HomeScreen from "./src/screens/homeScreen";
-import ScannerForm from "./src/screens/scanneScreen";
-import AppIntro from "./src/components/appIntroSlider";
-import * as Font from "expo-font";
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import HomeScreen from './src/screens/homeScreen';
+import ScannerForm from './src/screens/scanneScreen';
+import ProgramScreen from './src/screens/programScreen';
+import AppIntro from './src/components/appIntroSlider';
+import * as Font from 'expo-font';
 import {
   StyleSheet,
   ActivityIndicator,
@@ -40,22 +41,20 @@ function TabNavigator({ isValidTicket, setValidTicket }) {
   return (
     <Tab.Navigator
       initialRouteName="Scanne"
-      activeColor="#f55e30"
-      inactiveColor="#3e2465"
-      barStyle={{ backgroundColor: "#FAF9F7" }}
-      tabBarOptions={{
+      activeColor="#ff0081"
+      inactiveColor="#5508a0"
+      barStyle={{ background: '#FAF9F7' }}
+          tabBarOptions={{
         showLabel: true,
         style: { height: 60 },
       }}
     >
       <Tab.Screen
         name="Ticket"
-
         component={(props) => <ScannerForm {...props} setValidTicket={setValidTicket} />}
         options={{
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="ticket" color={color} size={27} />
-          ),
+            <MaterialCommunityIcons name="book-open-page-variant" color={color} size={26} />),
         }}
       />
 
@@ -69,6 +68,16 @@ function TabNavigator({ isValidTicket, setValidTicket }) {
                 <MaterialIcons name="assistant" size={27} color="black" />),
             }}
           />
+
+        <Tab.Screen
+          options={{
+            tabBarLabel: 'Programme',
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="book-open-page-variant" color={color} size={26} />),
+          }}
+          name="Program"
+          component={ProgramScreen}
+        />
 
           <Tab.Screen
             name="Cv"

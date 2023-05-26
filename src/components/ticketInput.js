@@ -67,17 +67,19 @@ const styles = StyleSheet.create({
     maxWidth: "90%",
   },
   button: {
-    backgroundColor: "#BE2B3E",
+    backgroundColor: "#3c7dec",
     padding: 10,
     borderRadius: 5,
     alignItems: "center",
     marginHorizontal: 5,
+    width: 100,
   },
   buttonText: {
     color: "#fff",
     fontWeight: "bold",
     textAlign: "center",
-    fontFamily: "MuseoSans_500",
+    fontFamily: 'MuseoSans_500',
+    color: "white",
   },
   qrCodeContainer: {
     alignItems: "center",

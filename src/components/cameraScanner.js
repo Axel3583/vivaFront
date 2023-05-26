@@ -56,18 +56,17 @@ export default function CameraScanner({ handleGoBack }) {
             <Text style={styles.buttonText}>Retour</Text>
           </TouchableOpacity>
         </View>
-      );
-    }
-  }
-return (
-    <View style={styles.container}>
-      <Camera
-        style={styles.camera}
-        onBarCodeScanned={handleBarCodeScannedInternal}
-      />
-      <TouchableOpacity style={styles.button} onPress={handleGoBack}>
-        <Text style={styles.buttonText}>Cancel</Text>
-      </TouchableOpacity>
+      ) : (
+        <>
+          <Camera
+            style={styles.camera}
+            onBarCodeScanned={handleBarCodeScannedInternal}
+          />
+          <TouchableOpacity style={styles.button} onPress={handleGoBack}>
+            <Text style={styles.buttonText}>Annuler</Text>
+          </TouchableOpacity>
+        </>
+      )}
     </View>
   );
 }
@@ -83,15 +82,17 @@ const styles = StyleSheet.create({
     aspectRatio: 1,
   },
   button: {
-    backgroundColor: "#BE2B3E",
+    backgroundColor: "#3c7dec",
     padding: 10,
     borderRadius: 5,
     marginTop: 10,
+    width: 100,
   },
   buttonText: {
     color: "#fff",
     fontWeight: "bold",
     textAlign: "center",
-    fontFamily: "MuseoSans_500",
+    fontFamily: 'MuseoSans_500',
+    color: "white",
   },
 });
