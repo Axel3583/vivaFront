@@ -38,7 +38,7 @@ export default function CameraScanner({ handleGoBack }) {
   if (hasPermission === false) {
     return (
       <Text style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        No access to camera
+        Pas d'accés à la caméra
       </Text>
     );
   }
@@ -50,7 +50,7 @@ export default function CameraScanner({ handleGoBack }) {
       return (
         <View>
           <TouchableOpacity style={styles.button} onPress={handleScanAgain}>
-            <Text style={styles.buttonText}>Scan again</Text>
+            <Text style={styles.buttonText}>Scanner encore </Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={handleGoBack}>
             <Text style={styles.buttonText}>Retour</Text>
@@ -66,7 +66,7 @@ return (
         onBarCodeScanned={handleBarCodeScannedInternal}
       />
       <TouchableOpacity style={styles.button} onPress={handleGoBack}>
-        <Text style={styles.buttonText}>Cancel</Text>
+        <Text style={styles.buttonText}>Annuler</Text>
       </TouchableOpacity>
     </View>
   );

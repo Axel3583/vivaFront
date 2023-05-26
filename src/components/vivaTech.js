@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { StyleSheet } from 'react-native';
-import { View, Text, TouchableOpacity, Dimensions } from 'react-native';
+import { View, Text, TouchableOpacity, Dimensions,FlatList,ScrollView } from 'react-native';
+import List from "./list";
 
 export default function VivaTech() {
     const [isHovered, setIsHovered] = useState(false);
