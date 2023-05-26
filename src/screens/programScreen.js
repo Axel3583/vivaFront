@@ -311,6 +311,112 @@ export default function ProgramScreen() {
                             </View>
                         </View>
                     )}
+                    {selectedButton === "Friday 16" && (
+                        <View style={styles.columnsContainer}>
+                            <View style={styles.column}>
+                                <View style={styles.block}>
+                                    <LinearGradient
+                                        colors={['#5508a0', '#a1009b']}
+                                        start={{ x: 0, y: 0 }}
+                                        end={{ x: 1, y: 1 }}
+                                        angle={45}
+                                        style={styles.sessionDateContainer}
+                                    >
+                                        <View style={styles.dateContainer}>
+                                            <Text style={styles.dayText}>Fri</Text>
+                                            <Text style={styles.dayText}>16</Text>
+                                        </View>
+                                        <View style={styles.hourContainer}>
+                                            <MaterialCommunityIcons name="clock" size={20} color="white" style={styles.clockIcon} />
+                                            <Text style={styles.timeText}>16:15 - 16:35</Text>
+                                        </View>
+                                        <View style={styles.roomContainer}>
+                                            <MaterialCommunityIcons name="map-marker" size={20} color="white" style={styles.mapIcon} />
+                                            <Text style={styles.roomNameText}>Stage 3</Text>
+                                        </View>
+                                    </LinearGradient>
+                                    <LinearGradient
+                                        colors={['#5508a0', '#a1009b']}
+                                        start={{ x: 0, y: 0 }}
+                                        end={{ x: 1, y: 1 }}
+                                        angle={45}
+                                        style={styles.titleContainer}
+                                    >
+                                        <Text style={styles.firstTitleText}>Founder Story: Going From Zero to a Million</Text>
+                                        <Text style={styles.societyText}>Scaling Up</Text>
+                                    </LinearGradient>
+                                    <View style={styles.imageContainer}>
+                                        <View style={styles.circleImageContainer}>
+                                            <Image
+                                                source={require("../../assets/image/p4.png")}
+                                                style={styles.circleImage}
+                                            />
+                                        </View>
+                                        <View>
+                                            <Text style={styles.nameText}>Cyril Chiche</Text>
+                                            <Text style={styles.jobText}>CEO (LYDIA)</Text>
+                                        </View>
+                                    </View>
+                                    <View style={styles.imageContainer}>
+                                        <View style={styles.circleImageContainer}>
+                                            <Image
+                                                source={require("../../assets/image/p4-2.png")}
+                                                style={styles.circleImage}
+                                            />
+                                        </View>
+                                        <View>
+                                            <Text style={styles.nameText}>Marion Moreau</Text>
+                                            <Text style={styles.jobText}>Founder and Editor-in-Chief (HNMEDIA)</Text>
+                                        </View>
+                                    </View>
+                                </View>
+                                <View style={styles.block}>
+                                    <LinearGradient
+                                        colors={['#5508a0', '#a1009b']}
+                                        start={{ x: 0, y: 0 }}
+                                        end={{ x: 1, y: 1 }}
+                                        angle={45}
+                                        style={styles.sessionDateContainer}
+                                    >
+                                        <View style={styles.dateContainer}>
+                                            <Text style={styles.dayText}>Fri</Text>
+                                            <Text style={styles.dayText}>16</Text>
+                                        </View>
+                                        <View style={styles.hourContainer}>
+                                            <MaterialCommunityIcons name="clock" size={20} color="white" style={styles.clockIcon} />
+                                            <Text style={styles.timeText}>16:00 - 17:30</Text>
+                                        </View>
+                                        <View style={styles.roomContainer}>
+                                            <MaterialCommunityIcons name="map-marker" size={20} color="white" style={styles.mapIcon} />
+                                            <Text style={styles.roomNameText}>Stadium</Text>
+                                        </View>
+                                    </LinearGradient>
+                                    <LinearGradient
+                                        colors={['#5508a0', '#a1009b']}
+                                        start={{ x: 0, y: 0 }}
+                                        end={{ x: 1, y: 1 }}
+                                        angle={45}
+                                        style={styles.titleContainer}
+                                    >
+                                        <Text style={styles.firstTitleText}>Inside Los Angeles 2028, Year-5</Text>
+                                        <Text style={styles.societyText}>Future of Sport</Text>
+                                    </LinearGradient>
+                                    <View style={styles.imageContainer}>
+                                        <View style={styles.circleImageContainer}>
+                                            <Image
+                                                source={require("../../assets/image/p4-3.png")}
+                                                style={styles.circleImage}
+                                            />
+                                        </View>
+                                        <View>
+                                            <Text style={styles.nameText}>Michelle Schwartz</Text>
+                                            <Text style={styles.jobText}>Chief External Affairs Officer</Text>
+                                        </View>
+                                    </View>
+                                </View>
+                            </View>
+                        </View>
+                    )}
                 </View>
             </View>
         </ScrollView>
