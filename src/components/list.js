@@ -44,9 +44,7 @@ const styles = StyleSheet.create({
     backgroundColor:'#f15700',
     borderWidth: 0,
     alignSelf: 'flex-start',
-    padding: 9,
-    margin: 15 -4 0;
-
+    padding: 9
   },
   label:{
     color:'#fff'
