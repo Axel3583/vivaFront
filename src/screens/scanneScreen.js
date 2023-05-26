@@ -57,7 +57,7 @@ export default function ScannerForm({ setValidTicket }) {
         }
       );
 
-      if (response.data.isValid) {
+      if (response.status === 200) {
         // Handle success here
         setValidTicket(true);
         setIsValidTicket(true);
