@@ -16,6 +16,7 @@ export default function VivaTech() {
                 activeOpacity={0.8}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave} >
+                <ScrollView>
                 <View style={[styles.cardContainer, { shadowColor: isHovered ? '#000' : 'black' }]}>
                     <View style={styles.cardContent}>
                         <Text style={styles.cardTitle}>Card Title</Text>
@@ -23,8 +24,10 @@ export default function VivaTech() {
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                         incididunt ut labore et dolore magna aliqua.
                         </Text>
+                        <List/>
                     </View>
                 </View>
+            </ScrollView>
             </TouchableOpacity>
         </View>);
 }

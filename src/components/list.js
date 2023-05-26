@@ -1,8 +1,13 @@
 import React from 'react';
 import { View, Text, FlatList } from 'react-native';
+import jsonData from '../../assets/entreprise.json'
 
 const List = () => {
-  const data = require('./assets/entreprise.json'); // Importez le fichier JSON
+  const dataList = jsonData.map((item, index) => ({
+    key: index.toString(),
+    title: item.title,
+    label: item.label,
+  }));
 
   const renderItem = ({ item }) => (
     <View>
@@ -14,13 +19,12 @@ const List = () => {
   return (
     <View>
       <FlatList
-        data={data}
+        data={dataList}
         renderItem={renderItem}
-        keyExtractor={(item, index) => index.toString()}
+        keyExtractor={(item) => item.key}
       />
     </View>
   );
 };
 
 export default List;
- 
