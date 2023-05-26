@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { StyleSheet, View, TouchableOpacity, Text, Alert, Dimensions, Image } from "react-native";
 import axios from "axios";
 import CameraScanner from "../components/cameraScanner";
@@ -23,7 +23,6 @@ export default function ScannerForm({ setValidTicket }) {
   const [ticketUrl, setTicketUrl] = useState("");
   const [showTicketDownloader, setShowTicketDownloader] = useState(false);
   const [isCardSelected, setIsCardSelected] = useState(false);
-  const navigation = useNavigation();
 
   const handleBarCodeScanned = ({ type, data }) => {
     setShowCamera(false);
@@ -40,7 +39,7 @@ export default function ScannerForm({ setValidTicket }) {
   useEffect(() => {
     console.log('isValidTicket changed:', isValidTicket);
   }, [isValidTicket]);
-  
+
   const handleTicketCodeSubmit = async () => {
     try {
       const response = await axios.get(
@@ -96,7 +95,7 @@ export default function ScannerForm({ setValidTicket }) {
   };
 
   const handleInputPress = () => {
-    setisCardSelected(false);
+    setIsCardSelected(false);
     setShowInput(true);
     setShowCamera(false);
   };
@@ -115,126 +114,267 @@ export default function ScannerForm({ setValidTicket }) {
     navigation.navigate('Home');
   };
 
+  // return (
+  //   <View style={styles.container}>
+  //     <TouchableOpacity onPress={handleLogoPress}>
+  //       <Image
+  //         source={require('../../assets/image/logo-v.png')}
+  //         style={styles.logo}
+  //       />
+  //     </TouchableOpacity>
+  //     {!isCardSelected && !showInput && !showCamera && (
+  //       <View>
+  //         <UploadTicket />
+  //       </View>
+  //     )}
+  //     <View style={styles.container}>
+  //       {showCamera ? (
+  //         <CameraScanner
+  //           handleBarCodeScanned={handleBarCodeScanned}
+  //           handleGoBack={handleCancelPress}
+  //         />
+  //       ) : showInput ? (
+  //         <TicketInput
+  //           ticketCode={ticketCode}
+  //           handleTicketCodeChange={handleTicketCodeChange}
+  //           handleTicketCodeSubmit={handleTicketCodeSubmit}
+  //           handleGoBack={handleGoBack}
+  //         />
+  //       ) : (
+  //         // <View style={styles.buttonContainer}>
+  //         //   <Card containerStyle={styles.card}>
+  //         //     {/* <LinearGradient
+  //         //       colors={['#fff265', '#ff5900', '#f5255d']}
+  //         //       style={styles.button}
+  //         //     >
+  //         //       <TouchableOpacity onPress={handleCameraPress}>
+  //         //         <View style={styles.buttonContent}>
+  //         //           <View style={styles.iconContainer}>
+  //         //             <Icon name="qrcode" size={20} color="#fff" style={styles.icon} />
+  //         //           </View>
+  //         //           <Text style={styles.buttonText}>Scanner le QR code</Text>
+  //         //         </View>
+  //         //         <View style={styles.dashedLine} />
+  //         //       </TouchableOpacity>
+  //         //     </LinearGradient> */}
+  //         //   </Card>
+  //         //   <Card containerStyle={styles.card}>
+  //         //     {/* <LinearGradient
+  //         //       colors={['#fff265', '#ff5900', '#f5255d']}
+  //         //       style={styles.button}
+  //         //     >
+  //         //       <TouchableOpacity onPress={handleInputPress}>
+  //         //         <View style={styles.buttonContent}>
+  //         //           <View style={styles.iconContainer}>
+  //         //             <Icon name="edit" size={20} color="#fff" style={styles.icon} />
+  //         //           </View>
+  //         //           <Text style={styles.buttonText}>Entrer le code du ticket</Text>
+  //         //         </View>
+  //         //         <View style={styles.dashedLine} />
+  //         //       </TouchableOpacity>
+  //         //     </LinearGradient> */}
+  //         //   </Card>
+  //         // </View>
+  //         <View style={styles.container}>
+  //         {showCamera ? (
+  //           <CameraScanner
+  //             handleBarCodeScanned={handleBarCodeScanned}
+  //             handleGoBack={handleCancelPress}
+  //           />
+  //         ) : showInput ? (
+  //           <TicketInput
+  //             ticketCode={ticketCode}
+  //             handleTicketCodeChange={handleTicketCodeChange}
+  //             handleTicketCodeSubmit={handleTicketCodeSubmit}
+  //             handleGoBack={handleGoBack}
+  //             keyboardType="visible-password"
+  //           />
+  //         ) : (
+  //           <View style={styles.buttonContainer}>
+  //             {!isValidTicket && (
+  //               <Card containerStyle={styles.card}>
+  //                 <TouchableOpacity
+  //                   style={styles.button}
+  //                   onPress={handleCameraPress}
+  //                 >
+  //                   <View style={styles.iconContainer}>
+  //                     <Icon
+  //                       name="qrcode"
+  //                       size={30}
+  //                       color="#E47B24"
+  //                       style={styles.icon}
+  //                     />
+  //                   </View>
+  //                   <Text style={styles.buttonText}>Scanner un QR code</Text>
+  //                 </TouchableOpacity>
+  //               </Card>
+  //             )}
+  //             <Card containerStyle={styles.card}>
+  //               <TouchableOpacity
+  //                 style={styles.button}
+  //                 onPress={handleInputPress}
+  //               >
+  //                 <View style={styles.iconContainer}>
+  //                   <Icon
+  //                     name="edit"
+  //                     size={30}
+  //                     color="#E47B24"
+  //                     style={styles.icon}
+  //                   />
+  //                 </View>
+  //                 <Text style={styles.buttonText}>
+  //                   Entrer le code du ticket
+  //                 </Text>
+  //               </TouchableOpacity>
+  //             </Card>
+  //           </View>
+  //         )}
+  //       </View>
+  //       )}
+
+  //     </View>
+  //   </View >
+  // );
   return (
-    <View style={styles.container}>
-      <TouchableOpacity onPress={handleLogoPress}>
-        <Image
-          source={require('../../assets/image/logo-v.png')}
-          style={styles.logo}
-        />
-      </TouchableOpacity>
-      {!isCardSelected && !showInput && !showCamera && (
-        <View>
-          <UploadTicket />
-        </View>
-      )}
+
+    <View style={styles.containerParent}>
+
       <View style={styles.container}>
-        {showCamera ? (
-          <CameraScanner
-            handleBarCodeScanned={handleBarCodeScanned}
-            handleGoBack={handleCancelPress}
+
+        <TouchableOpacity onPress={handleLogoPress}>
+          <Image
+            source={require('../../assets/image/logo-v.png')}
+            style={styles.logo}
           />
-        ) : showInput ? (
-          <TicketInput
-            ticketCode={ticketCode}
-            handleTicketCodeChange={handleTicketCodeChange}
-            handleTicketCodeSubmit={handleTicketCodeSubmit}
-            handleGoBack={handleGoBack}
-          />
-        ) : (
-          <View style={styles.buttonContainer}>
-            <Card containerStyle={styles.card}>
-              <LinearGradient
-                colors={['#fff265', '#ff5900', '#f5255d']}
-                style={styles.button}
-              >
-                <TouchableOpacity onPress={handleCameraPress}>
-                  <View style={styles.buttonContent}>
-                    <View style={styles.iconContainer}>
-                      <Icon name="qrcode" size={20} color="#fff" style={styles.icon} />
-                    </View>
-                    <Text style={styles.buttonText}>Scanner le QR code</Text>
-                  </View>
-                  <View style={styles.dashedLine} />
-                </TouchableOpacity>
-              </LinearGradient>
-            </Card>
-            <Card containerStyle={styles.card}>
-              <LinearGradient
-                colors={['#fff265', '#ff5900', '#f5255d']}
-                style={styles.button}
-              >
-                <TouchableOpacity onPress={handleInputPress}>
-                  <View style={styles.buttonContent}>
-                    <View style={styles.iconContainer}>
-                      <Icon name="edit" size={20} color="#fff" style={styles.icon} />
-                    </View>
-                    <Text style={styles.buttonText}>Entrer le code du ticket</Text>
-                  </View>
-                  <View style={styles.dashedLine} />
-                </TouchableOpacity>
-              </LinearGradient>
-            </Card>
+        </TouchableOpacity>
+
+        {!isCardSelected && !showInput && !showCamera && (
+
+          <View>
+
+            <UploadTicket />
+
           </View>
+
         )}
 
+
+
+
         <View style={styles.container}>
+
           {showCamera ? (
+
             <CameraScanner
+
               handleBarCodeScanned={handleBarCodeScanned}
+
               handleGoBack={handleCancelPress}
+
             />
+
           ) : showInput ? (
+
             <TicketInput
+
               ticketCode={ticketCode}
+
               handleTicketCodeChange={handleTicketCodeChange}
+
               handleTicketCodeSubmit={handleTicketCodeSubmit}
+
               handleGoBack={handleGoBack}
+
               keyboardType="visible-password"
+
             />
+
           ) : (
+
             <View style={styles.buttonContainer}>
+
               {!isValidTicket && (
+
                 <Card containerStyle={styles.card}>
+
                   <TouchableOpacity
+
                     style={styles.button}
+
                     onPress={handleCameraPress}
+
                   >
+
                     <View style={styles.iconContainer}>
+
                       <Icon
+
                         name="qrcode"
+
                         size={30}
+
                         color="#E47B24"
+
                         style={styles.icon}
+
                       />
+
                     </View>
+
                     <Text style={styles.buttonText}>Scanner un QR code</Text>
+
                   </TouchableOpacity>
+
                 </Card>
+
               )}
+
               <Card containerStyle={styles.card}>
+
                 <TouchableOpacity
+
                   style={styles.button}
+
                   onPress={handleInputPress}
+
                 >
+
                   <View style={styles.iconContainer}>
+
                     <Icon
+
                       name="edit"
+
                       size={30}
+
                       color="#E47B24"
+
                       style={styles.icon}
+
                     />
+
                   </View>
+
                   <Text style={styles.buttonText}>
+
                     Entrer le code du ticket
+
                   </Text>
+
                 </TouchableOpacity>
+
               </Card>
+
             </View>
+
           )}
+
         </View>
+
       </View>
-    </View >
+
+    </View>
+
   );
 }
 
@@ -269,65 +409,66 @@ const styles = StyleSheet.create({
   button: {
     padding: 10,
     borderRadius: 2,
-  backgroundImage: {
-    flex: 1,
-    width: "100%",
-    height: "100%",
-    resizeMode: "cover",
-  },
-  button: {
-    backgroundColor: "#FAF9F7",
-    padding: 5,
-    borderRadius: 5,
-    marginHorizontal: 5,
-    // backgroundImage: 'linear-gradient(135deg, #fff265, #ff5900, #f5255d)',
-    // backgroundColor: 'linear-gradient(135deg, #fff265, #ff5900, #f5255d)',
-  },
-  buttonContent: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  buttonText: {
-    color: "black",
-    fontWeight: "bold",
-    textAlign: "center",
-    fontSize: 17,
-    fontFamily: "MuseoSans_500",
-    color: "white",
-  },
-  dashedLine: {
-    position: "absolute",
-    left: "100%",
-    top: "50%",
-    transform: [{ translateY: -50 }],
-    width: 2,
-    height: "100%",
-    borderRightWidth: 2,
-    borderRightColor: "rgba(255, 255, 255, 0.5)",
-    opacity: 0.5,
-  },
-  iconContainer: {
-    marginRight: 5,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  icon: {
-    marginRight: 5,
-    fontFamily: "MuseoSans_500",
-  },
-  card: {
-    width: "90%",
-    borderRadius: 10,
-    justifyContent: "center",
-    borderColor: "#fff",
-    borderWidth: 1,
-    backgroundColor: "#FAF9F7",
-    shadowColor: "#000", // Couleur de l'ombre
-    shadowOffset: {
-      width: 0,
-      height: 2,
+    backgroundImage: {
+      flex: 1,
+      width: "100%",
+      height: "100%",
+      resizeMode: "cover",
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-  },
+    button: {
+      backgroundColor: "#FAF9F7",
+      padding: 5,
+      borderRadius: 5,
+      marginHorizontal: 5,
+      // backgroundImage: 'linear-gradient(135deg, #fff265, #ff5900, #f5255d)',
+      // backgroundColor: 'linear-gradient(135deg, #fff265, #ff5900, #f5255d)',
+    },
+    buttonContent: {
+      flexDirection: "row",
+      alignItems: "center",
+    },
+    buttonText: {
+      color: "black",
+      fontWeight: "bold",
+      textAlign: "center",
+      fontSize: 17,
+      fontFamily: "MuseoSans_500",
+      color: "white",
+    },
+    dashedLine: {
+      position: "absolute",
+      left: "100%",
+      top: "50%",
+      transform: [{ translateY: -50 }],
+      width: 2,
+      height: "100%",
+      borderRightWidth: 2,
+      borderRightColor: "rgba(255, 255, 255, 0.5)",
+      opacity: 0.5,
+    },
+    iconContainer: {
+      marginRight: 5,
+      justifyContent: "center",
+      alignItems: "center",
+    },
+    icon: {
+      marginRight: 5,
+      fontFamily: "MuseoSans_500",
+    },
+    card: {
+      width: "90%",
+      borderRadius: 10,
+      justifyContent: "center",
+      borderColor: "#fff",
+      borderWidth: 1,
+      backgroundColor: "#FAF9F7",
+      shadowColor: "#000", // Couleur de l'ombre
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 4,
+    },
+  }
 });

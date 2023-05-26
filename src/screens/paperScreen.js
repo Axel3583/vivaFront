@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Button, TextInput, Text, Picker } from 'react-native';
+import { StyleSheet, View, Button, TextInput, Text } from 'react-native';
 import * as DocumentPicker from 'expo-document-picker';
 import { Ionicons } from '@expo/vector-icons';
+import {Picker} from '@react-native-picker/picker';
 
 const companies = [
   "Google",
