@@ -58,7 +58,7 @@ function TabNavigator({ isValidTicket, setValidTicket }) {
         }}
       />
 
-      {!isValidTicket ? (
+      {isValidTicket ? (
         <>
           <Tab.Screen
             name="Stands"
