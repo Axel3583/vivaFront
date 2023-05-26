@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginBottom: 10,
         textAlign: 'center',
+        paddingTop: 60
     },
     cardText: {
         fontSize: width * 0.04, // Utiliser une unité relative pour la taille de police 
