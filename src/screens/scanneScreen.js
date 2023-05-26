@@ -1,23 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import {
   StyleSheet,
   View,
   TouchableOpacity,
   Text,
-  Alert,
-  Dimensions,
-  ImageBackground,
+  Alert
 } from "react-native";
 import CameraScanner from "../components/cameraScanner";
 import TicketInput from "../components/ticketInput";
 import UploadTicket from "../components/uploadTicket";
-import { Ionicons } from "@expo/vector-icons";
 import { Card } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { useNavigation } from "@react-navigation/native";
-import backgroundImage from "../../assets/image/backg.png";
-export default function ScannerForm() {
+import backgroundImage from "../../assets/image/backg1.png";
+
+
+export default function ScannerForm({ setValidTicket }) {
+
+  const [isValidTicket, setIsValidTicket] = useState(false);
+
   const navigation = useNavigation();
 
   const [showCamera, setShowCamera] = useState(false);
@@ -32,45 +34,47 @@ export default function ScannerForm() {
     Alert.alert(`Scanned data: ${data}`);
   };
 
-  // const handleTicketCodeSubmit = () => {
-  //   Alert.alert(`Ticket code: ${ticketCode}`);
-  // };
-
   const handleTicketCodeChange = (value) => {
     console.log(value);
     setTicketCode(value);
   };
 
+  useEffect(() => {
+    console.log('isValidTicket changed:', isValidTicket);
+  }, [isValidTicket]);
+  
   const handleTicketCodeSubmit = async () => {
-    console.log("ok");
-    if (!isValidTicketCodeFormat(ticketCode)) {
-      Alert.alert(
-        "Format de ticket invalide",
-        "Veuillez entrer un code de ticket valide.",
-        [
-          {
-            text: "OK",
-            onPress: () => console.log("OK Pressed"),
-          },
-        ]
-      );
-      return;
-    }
-
     try {
-      const response = await axios.post(
-        "http://localhost:3000/tickets/check-validity?code",
-        {
-          ticketCode: ticketCode,
+      const response = await axios.get(
+        `http://localhost:3000/tickets/check-validity`, {
+        params: {
+          code: ticketCode,
         }
+      }
       );
 
-      if (response.status === 200) {
+      if (response.data.isValid) {
         // Handle success here
+        setValidTicket(true);
+        setIsValidTicket(true)
         console.log(response.data);
-        navigation.navigate("Home");
+        Alert.alert(
+          "Ticket valide",
+          "Vous allez être redirigé vers l'accueil",
+          [
+            {
+              text: "OK",
+              onPress: () => {
+                console.log("OK Pressed");
+                // navigation.navigate("Ticket");
+              },
+            },
+          ]
+        );
       } else {
         // Handle error here
+        console.log('Should display alert now');
+        window.alert("Ticket invalide: Veuillez vérifier votre code de ticket.");
         Alert.alert(
           "Ticket invalide",
           "Veuillez vérifier votre code de ticket.",
@@ -82,14 +86,10 @@ export default function ScannerForm() {
           ]
         );
       }
+
     } catch (error) {
       console.error("Error:", error);
     }
-  };
-
-  const isValidTicketCodeFormat = (code) => {
-    const regex = /^GHIJKL7891012$/;
-    return regex.test(code);
   };
 
   const handleCameraPress = () => {
@@ -138,22 +138,24 @@ export default function ScannerForm() {
             />
           ) : (
             <View style={styles.buttonContainer}>
-              <Card containerStyle={styles.card}>
-                <TouchableOpacity
-                  style={styles.button}
-                  onPress={handleCameraPress}
-                >
-                  <View style={styles.iconContainer}>
-                    <Icon
-                      name="qrcode"
-                      size={30}
-                      color="#E47B24"
-                      style={styles.icon}
-                    />
-                  </View>
-                  <Text style={styles.buttonText}>Scanner un QR code</Text>
-                </TouchableOpacity>
-              </Card>
+              {!isValidTicket && (
+                <Card containerStyle={styles.card}>
+                  <TouchableOpacity
+                    style={styles.button}
+                    onPress={handleCameraPress}
+                  >
+                    <View style={styles.iconContainer}>
+                      <Icon
+                        name="qrcode"
+                        size={30}
+                        color="#E47B24"
+                        style={styles.icon}
+                      />
+                    </View>
+                    <Text style={styles.buttonText}>Scanner un QR code</Text>
+                  </TouchableOpacity>
+                </Card>
+              )}
               <Card containerStyle={styles.card}>
                 <TouchableOpacity
                   style={styles.button}
