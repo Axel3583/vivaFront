@@ -1,12 +1,12 @@
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import HomeScreen from './src/screens/homeScreen';
-import ScannerForm from './src/screens/scanneScreen';
-import ProgramScreen from './src/screens/programScreen';
-import AppIntro from './src/components/appIntroSlider';
-import * as Font from 'expo-font';
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import HomeScreen from "./src/screens/homeScreen";
+import ScannerForm from "./src/screens/scanneScreen";
+import ProgramScreen from "./src/screens/programScreen";
+import AppIntro from "./src/components/appIntroSlider";
+import * as Font from "expo-font";
 import {
   StyleSheet,
   ActivityIndicator,
@@ -19,10 +19,10 @@ import {
   SafeAreaProvider,
   initialWindowMetrics,
 } from "react-native-safe-area-context";
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome } from "@expo/vector-icons";
 import PaperScreen from "./src/screens/paperScreen";
 import MessageScreen from "./src/screens/messageScreen";
-import { MaterialIcons } from '@expo/vector-icons';
+import { MaterialIcons } from "@expo/vector-icons";
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -43,18 +43,25 @@ function TabNavigator({ isValidTicket, setValidTicket }) {
       initialRouteName="Scanne"
       activeColor="#ff0081"
       inactiveColor="#5508a0"
-      barStyle={{ background: '#FAF9F7' }}
-          tabBarOptions={{
+      barStyle={{ background: "#FAF9F7" }}
+      tabBarOptions={{
         showLabel: true,
         style: { height: 60 },
       }}
     >
       <Tab.Screen
         name="Ticket"
-        component={(props) => <ScannerForm {...props} setValidTicket={setValidTicket} />}
+        component={(props) => (
+          <ScannerForm {...props} setValidTicket={setValidTicket} />
+        )}
         options={{
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="book-open-page-variant" color={color} size={26} />),
+            <MaterialCommunityIcons
+              name="book-open-page-variant"
+              color={color}
+              size={26}
+            />
+          ),
         }}
       />
 
@@ -65,26 +72,32 @@ function TabNavigator({ isValidTicket, setValidTicket }) {
             component={HomeScreen}
             options={{
               tabBarIcon: ({ color }) => (
-                <MaterialIcons name="assistant" size={27} color="black" />),
+                <MaterialIcons name="assistant" size={27} color={color} />
+              ),
             }}
           />
 
-        <Tab.Screen
-          options={{
-            tabBarLabel: 'Programme',
-            tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="book-open-page-variant" color={color} size={26} />),
-          }}
-          name="Program"
-          component={ProgramScreen}
-        />
+          <Tab.Screen
+            options={{
+              tabBarLabel: "Programme",
+              tabBarIcon: ({ color }) => (
+                <MaterialCommunityIcons
+                  name="book-open-page-variant"
+                  color={color}
+                  size={26}
+                />
+              ),
+            }}
+            name="Program"
+            component={ProgramScreen}
+          />
 
           <Tab.Screen
             name="Cv"
             component={PaperScreen}
             options={{
               tabBarIcon: ({ color }) => (
-                <FontAwesome name="paper-plane-o" size={27} color="black" />
+                <FontAwesome name="paper-plane-o" size={27} color={color} />
               ),
             }}
           />
@@ -94,7 +107,11 @@ function TabNavigator({ isValidTicket, setValidTicket }) {
             component={MessageScreen}
             options={{
               tabBarIcon: ({ color }) => (
-                <MaterialCommunityIcons name="message" color={color} size={27} />
+                <MaterialCommunityIcons
+                  name="message"
+                  color={color}
+                  size={27}
+                />
               ),
             }}
           />
@@ -102,9 +119,7 @@ function TabNavigator({ isValidTicket, setValidTicket }) {
       ) : null}
     </Tab.Navigator>
   );
-
 }
-
 
 export default class App extends React.Component {
   state = {
@@ -171,7 +186,10 @@ export default class App extends React.Component {
           ) : showIntro ? (
             <AppIntro handleDone={this.handleDone} />
           ) : (
-            <TabNavigator setValidTicket={this.setValidTicket} isValidTicket={this.state.isValidTicket} />
+            <TabNavigator
+              setValidTicket={this.setValidTicket}
+              isValidTicket={this.state.isValidTicket}
+            />
           )}
         </SafeAreaProvider>
       </NavigationContainer>

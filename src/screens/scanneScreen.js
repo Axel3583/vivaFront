@@ -1,18 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, View, TouchableOpacity, Text, Alert, Dimensions, Image } from "react-native";
+import {
+  StyleSheet,
+  View,
+  TouchableOpacity,
+  Text,
+  Alert,
+  Dimensions,
+  Image,
+} from "react-native";
 import axios from "axios";
 import CameraScanner from "../components/cameraScanner";
 import TicketInput from "../components/ticketInput";
 import UploadTicket from "../components/uploadTicket";
 import { Card } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { LinearGradient } from 'expo-linear-gradient';
-import { useNavigation } from '@react-navigation/native';
+import { LinearGradient } from "expo-linear-gradient";
+import { useNavigation } from "@react-navigation/native";
 import backgroundImage from "../../assets/image/backg1.png";
 
-
 export default function ScannerForm({ setValidTicket }) {
-
   const [isValidTicket, setIsValidTicket] = useState(false);
 
   const navigation = useNavigation();
@@ -37,23 +43,24 @@ export default function ScannerForm({ setValidTicket }) {
   };
 
   useEffect(() => {
-    console.log('isValidTicket changed:', isValidTicket);
+    console.log("isValidTicket changed:", isValidTicket);
   }, [isValidTicket]);
 
   const handleTicketCodeSubmit = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/tickets/check-validity`, {
-        params: {
-          code: ticketCode,
+        `http://localhost:3000/tickets/check-validity`,
+        {
+          params: {
+            code: ticketCode,
+          },
         }
-      }
       );
 
       if (response.data.isValid) {
         // Handle success here
         setValidTicket(true);
-        setIsValidTicket(true)
+        setIsValidTicket(true);
         console.log(response.data);
         Alert.alert(
           "Ticket valide",
@@ -70,8 +77,10 @@ export default function ScannerForm({ setValidTicket }) {
         );
       } else {
         // Handle error here
-        console.log('Should display alert now');
-        window.alert("Ticket invalide: Veuillez vérifier votre code de ticket.");
+        console.log("Should display alert now");
+        window.alert(
+          "Ticket invalide: Veuillez vérifier votre code de ticket."
+        );
         Alert.alert(
           "Ticket invalide",
           "Veuillez vérifier votre code de ticket.",
@@ -83,7 +92,6 @@ export default function ScannerForm({ setValidTicket }) {
           ]
         );
       }
-
     } catch (error) {
       console.error("Error:", error);
     }
@@ -111,7 +119,7 @@ export default function ScannerForm({ setValidTicket }) {
   };
 
   const handleLogoPress = () => {
-    navigation.navigate('Home');
+    navigation.navigate("Home");
   };
 
   // return (
@@ -236,145 +244,81 @@ export default function ScannerForm({ setValidTicket }) {
   //   </View >
   // );
   return (
-
     <View style={styles.containerParent}>
-
       <View style={styles.container}>
-
         <TouchableOpacity onPress={handleLogoPress}>
           <Image
-            source={require('../../assets/image/logo-v.png')}
+            source={require("../../assets/image/logo-v.png")}
             style={styles.logo}
           />
         </TouchableOpacity>
 
         {!isCardSelected && !showInput && !showCamera && (
-
           <View>
-
             <UploadTicket />
-
           </View>
-
         )}
 
-
-
-
         <View style={styles.container}>
-
           {showCamera ? (
-
             <CameraScanner
-
               handleBarCodeScanned={handleBarCodeScanned}
-
               handleGoBack={handleCancelPress}
-
             />
-
           ) : showInput ? (
-
             <TicketInput
-
               ticketCode={ticketCode}
-
               handleTicketCodeChange={handleTicketCodeChange}
-
               handleTicketCodeSubmit={handleTicketCodeSubmit}
-
               handleGoBack={handleGoBack}
-
               keyboardType="visible-password"
-
             />
-
           ) : (
-
             <View style={styles.buttonContainer}>
-
               {!isValidTicket && (
-
                 <Card containerStyle={styles.card}>
-
                   <TouchableOpacity
-
                     style={styles.button}
-
                     onPress={handleCameraPress}
-
                   >
-
                     <View style={styles.iconContainer}>
-
                       <Icon
-
                         name="qrcode"
-
                         size={30}
-
                         color="#E47B24"
-
                         style={styles.icon}
-
                       />
-
                     </View>
 
                     <Text style={styles.buttonText}>Scanner un QR code</Text>
-
                   </TouchableOpacity>
-
                 </Card>
-
               )}
 
               <Card containerStyle={styles.card}>
-
                 <TouchableOpacity
-
                   style={styles.button}
-
                   onPress={handleInputPress}
-
                 >
-
                   <View style={styles.iconContainer}>
-
                     <Icon
-
                       name="edit"
-
                       size={30}
-
                       color="#E47B24"
-
                       style={styles.icon}
-
                     />
-
                   </View>
 
                   <Text style={styles.buttonText}>
-
                     Entrer le code du ticket
-
                   </Text>
-
                 </TouchableOpacity>
-
               </Card>
-
             </View>
-
           )}
-
         </View>
-
       </View>
-
     </View>
-
   );
 }
 
@@ -395,7 +339,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
   },
   logo: {
-    position: 'absolute',
+    position: "absolute",
     top: 60,
     left: 20,
     width: 60,
@@ -406,69 +350,64 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: "column",
   },
+  backgroundImage: {
+    flex: 1,
+    width: "100%",
+    height: "100%",
+    resizeMode: "cover",
+  },
   button: {
-    padding: 10,
-    borderRadius: 2,
-    backgroundImage: {
-      flex: 1,
-      width: "100%",
-      height: "100%",
-      resizeMode: "cover",
+    backgroundColor: "#FAF9F7",
+    padding: 5,
+    borderRadius: 5,
+    marginHorizontal: 5,
+    // backgroundImage: 'linear-gradient(135deg, #fff265, #ff5900, #f5255d)',
+    // backgroundColor: 'linear-gradient(135deg, #fff265, #ff5900, #f5255d)',
+  },
+  buttonContent: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  buttonText: {
+    color: "black",
+    fontWeight: "bold",
+    textAlign: "center",
+    fontSize: 17,
+    fontFamily: "MuseoSans_500",
+  },
+  dashedLine: {
+    position: "absolute",
+    left: "100%",
+    top: "50%",
+    transform: [{ translateY: -50 }],
+    width: 2,
+    height: "100%",
+    borderRightWidth: 2,
+    borderRightColor: "rgba(255, 255, 255, 0.5)",
+    opacity: 0.5,
+  },
+  iconContainer: {
+    marginRight: 5,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  icon: {
+    marginRight: 5,
+    fontFamily: "MuseoSans_500",
+  },
+  card: {
+    width: "90%",
+    borderRadius: 10,
+    justifyContent: "center",
+    borderColor: "#fff",
+    borderWidth: 1,
+    backgroundColor: "#FAF9F7",
+    shadowColor: "#000", // Couleur de l'ombre
+    shadowOffset: {
+      width: 0,
+      height: 2,
     },
-    button: {
-      backgroundColor: "#FAF9F7",
-      padding: 5,
-      borderRadius: 5,
-      marginHorizontal: 5,
-      // backgroundImage: 'linear-gradient(135deg, #fff265, #ff5900, #f5255d)',
-      // backgroundColor: 'linear-gradient(135deg, #fff265, #ff5900, #f5255d)',
-    },
-    buttonContent: {
-      flexDirection: "row",
-      alignItems: "center",
-    },
-    buttonText: {
-      color: "black",
-      fontWeight: "bold",
-      textAlign: "center",
-      fontSize: 17,
-      fontFamily: "MuseoSans_500",
-      color: "white",
-    },
-    dashedLine: {
-      position: "absolute",
-      left: "100%",
-      top: "50%",
-      transform: [{ translateY: -50 }],
-      width: 2,
-      height: "100%",
-      borderRightWidth: 2,
-      borderRightColor: "rgba(255, 255, 255, 0.5)",
-      opacity: 0.5,
-    },
-    iconContainer: {
-      marginRight: 5,
-      justifyContent: "center",
-      alignItems: "center",
-    },
-    icon: {
-      marginRight: 5,
-      fontFamily: "MuseoSans_500",
-    },
-    card: {
-      width: "90%",
-      borderRadius: 10,
-      justifyContent: "center",
-      borderColor: "#fff",
-      borderWidth: 1,
-      backgroundColor: "#FAF9F7",
-      shadowColor: "#000", // Couleur de l'ombre
-      shadowOffset: {
-        width: 0,
-        height: 2,
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 4,
-    },
-  }
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+  },
 });
