@@ -1,27 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { StyleSheet, View, Text, TextInput } from "react-native";
+import React from "react";
+import {
+  StyleSheet,
+  View,
+  TextInput,
+  TouchableOpacity,
+  Text,
+} from "react-native";
 
-const TicketInput = () => {
-  const [ticketCode, setTicketCode] = useState("");
-  const [qrCodeValue, setQRCodeValue] = useState("");
-
-  useEffect(() => {
-    if (ticketCode.trim() !== "") {
-      fetch(`http://localhost:3000/tickets/${ticketCode}`)
-        .then((response) => response.json())
-        .then((data) => {
-          setQRCodeValue(data.code);
-        })
-        .catch((error) => {
-          console.error("Error fetching ticket code:", error);
-        });
-    }
-  }, [ticketCode]);
-
-  const handleTicketCodeChange = (code) => {
-    setTicketCode(code);
-  };
-
+const TicketInput = ({
+  ticketCode,
+  handleTicketCodeChange,
+  handleTicketCodeSubmit,
+  handleGoBack,
+}) => {
   return (
     <View style={styles.container}>
       <TextInput
@@ -30,14 +21,17 @@ const TicketInput = () => {
         value={ticketCode}
         placeholder="Enter ticket code"
       />
-      {qrCodeValue ? (
-        <View style={styles.qrCodeContainer}>
-          <QRCode value={qrCodeValue} size={200} />
-          <TouchableOpacity style={styles.button} onPress={() => setQRCodeValue("")}>
-            <Text style={styles.buttonText}>New QR Code</Text>
-          </TouchableOpacity>
-        </View>
-      ) : null}
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={handleTicketCodeSubmit}
+        >
+          <Text style={styles.buttonText}>Envoyer</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={handleGoBack}>
+          <Text style={styles.buttonText}>Retour</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -67,22 +61,17 @@ const styles = StyleSheet.create({
     maxWidth: "90%",
   },
   button: {
-    backgroundColor: "#3c7dec",
+    backgroundColor: "#BE2B3E",
     padding: 10,
     borderRadius: 5,
-    alignItems: "center",
+    alignItems: 'flex-start',
     marginHorizontal: 5,
-    width: 100,
   },
   buttonText: {
-    color: "#fff",
+    color: '#fff',
     fontWeight: "bold",
     textAlign: "center",
-    fontFamily: 'MuseoSans_500',
-    color: "white",
-  },
-  qrCodeContainer: {
-    alignItems: "center",
+    fontFamily: 'MuseoSans_500'
   },
 });
 
