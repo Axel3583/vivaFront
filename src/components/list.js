@@ -15,9 +15,9 @@ const List = () => {
     
     <Card containerStyle={styles.card}>
       <Text style={styles.titre}>{item.title}</Text>
-      <Card containerStyle={styles.Cardlabel}>
+      
         <Text style={styles.label}>{item.label}</Text>
-      </Card>
+      
    </Card>
   );
 
@@ -34,20 +34,18 @@ const List = () => {
 const styles = StyleSheet.create({
   titre: {
     fontWeight: "bold",
-    fontSize: 17
+    fontSize: 17,
+    paddingBottom: 7
   },
   card:{
     borderRadius:10
   },
-  Cardlabel:{
-    borderRadius: 32,
-    backgroundColor:'#f15700',
-    borderWidth: 0,
-    alignSelf: 'flex-start',
-    padding: 9
-  },
+ 
   label:{
-    color:'#fff'
+    color:'black',
+    
+    fontSize: 12
+
   }
 });
 
