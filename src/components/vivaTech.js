@@ -10,12 +10,7 @@ export default function VivaTech() {
 
     return (
         <View style={styles.container}>
-            <TouchableOpacity
-                style={[styles.card, { backgroundColor: isHovered ? '#00bcd4' : '#fff' }]}
-                onPress={() => console.log('Card pressed')}
-                activeOpacity={0.8}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave} >
+            
                 <ScrollView>
                 <View style={[styles.cardContainer, { shadowColor: isHovered ? '#000' : 'black' }]}>
                     <View style={styles.cardContent}>
@@ -24,7 +19,6 @@ export default function VivaTech() {
                     </View>
                 </View>
             </ScrollView>
-            </TouchableOpacity>
         </View>);
 }
 const { width, height } = Dimensions.get('window');
