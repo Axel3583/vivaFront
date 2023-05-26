@@ -10,10 +10,10 @@ export default function FileItem({ file, deleteFile }) {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={handleDelete}>
-        <View style={styles.fileContainer}>
+        {/* <View style={styles.fileContainer}>
           <MaterialIcons name="delete-outline" size={24} color="black" />
           <Text style={styles.fileName}>{file.name}</Text>
-        </View>
+        </View> */}
       </TouchableOpacity>
     </View>
   );

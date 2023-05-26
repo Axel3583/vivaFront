@@ -74,7 +74,7 @@ export default function FileUpload({ files, setFiles, removeFile }) {
                 <Text style={styles.buttonText}>Télécharger un ticket</Text>
                 </TouchableOpacity>
             </View>
-            <Text style={styles.supportText}>Support files</Text>
+            <Text style={styles.supportText}>Format</Text>
             <Text style={styles.fileTypes}>PDF, JPG, PNG, SVG</Text>
         </View>
     )
@@ -131,17 +131,19 @@ const styles = StyleSheet.create({
     },
     icon: {
         fontSize: 24,
-        color: '#fff',
+        color:"#fff",
         marginRight: width < 380 ? 6 : 8
     },
     supportText: {
         fontSize: width < 380 ? 14 : 16,
         marginTop: width < 380 ? 10 : 12,
-        fontFamily: 'MuseoSans_700'
+        fontFamily: 'MuseoSans_700',
+       
     },
     fileTypes: {
         fontSize: width < 380 ? 14 : 16,
         marginTop: width < 380 ? 5 : 8,
-        fontFamily: 'MuseoSans_500'
+        fontFamily: 'MuseoSans_500',
+        
     }
 });

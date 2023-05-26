@@ -1,3 +1,4 @@
+
 import React, {useState} from 'react';
 import { StyleSheet, View , Text} from 'react-native';
 import FileUpload from './fileUpload';
@@ -9,11 +10,11 @@ const [files, setFiles] = useState([{
     name: 'myFile.pdf'
 }])
 
-const removeFile = (filename) => {
-    setFiles(files.filter(file => file.name !== filename))
-}
+  const removeFile = (filename) => {
+    setFiles(files.filter((file) => file.name !== filename));
+  };
 
-console.log(files)
+  console.log(files);
 
   return (
     <View style={styles.container}>
