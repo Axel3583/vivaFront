@@ -142,22 +142,22 @@ export default function ScannerForm({ setValidTicket }) {
   //         />
   //       ) : (
   //         // <View style={styles.buttonContainer}>
-  //         //   <Card containerStyle={styles.card}>
-  //         //     {/* <LinearGradient
-  //         //       colors={['#fff265', '#ff5900', '#f5255d']}
-  //         //       style={styles.button}
-  //         //     >
-  //         //       <TouchableOpacity onPress={handleCameraPress}>
-  //         //         <View style={styles.buttonContent}>
-  //         //           <View style={styles.iconContainer}>
-  //         //             <Icon name="qrcode" size={20} color="#fff" style={styles.icon} />
-  //         //           </View>
-  //         //           <Text style={styles.buttonText}>Scanner le QR code</Text>
-  //         //         </View>
-  //         //         <View style={styles.dashedLine} />
-  //         //       </TouchableOpacity>
-  //         //     </LinearGradient> */}
-  //         //   </Card>
+  //   <Card containerStyle={styles.card}>
+  //     {/* <LinearGradient
+  //       colors={['#fff265', '#ff5900', '#f5255d']}
+  //       style={styles.button}
+  //     >
+  //       <TouchableOpacity onPress={handleCameraPress}>
+  //         <View style={styles.buttonContent}>
+  //           <View style={styles.iconContainer}>
+  //             <Icon name="qrcode" size={20} color="#fff" style={styles.icon} />
+  //           </View>
+  //           <Text style={styles.buttonText}>Scanner le QR code</Text>
+  //         </View>
+  //         <View style={styles.dashedLine} />
+  //       </TouchableOpacity>
+  //     </LinearGradient> */}
+  //   </Card>
   //         //   <Card containerStyle={styles.card}>
   //         //     {/* <LinearGradient
   //         //       colors={['#fff265', '#ff5900', '#f5255d']}
@@ -296,73 +296,39 @@ export default function ScannerForm({ setValidTicket }) {
               {!isValidTicket && (
 
                 <Card containerStyle={styles.card}>
-
-                  <TouchableOpacity
-
+                  <LinearGradient
+                    colors={['#fff265', '#ff5900', '#f5255d']}
                     style={styles.button}
-
-                    onPress={handleCameraPress}
-
                   >
-
-                    <View style={styles.iconContainer}>
-
-                      <Icon
-
-                        name="qrcode"
-
-                        size={30}
-
-                        color="#E47B24"
-
-                        style={styles.icon}
-
-                      />
-
-                    </View>
-
-                    <Text style={styles.buttonText}>Scanner un QR code</Text>
-
-                  </TouchableOpacity>
-
+                    <TouchableOpacity onPress={handleCameraPress}>
+                      <View style={styles.buttonContent}>
+                        <View style={styles.iconContainer}>
+                          <Icon name="qrcode" size={20} color="#fff" style={styles.icon} />
+                        </View>
+                        <Text style={styles.buttonText}>Scanner le QR code</Text>
+                      </View>
+                      <View style={styles.dashedLine} />
+                    </TouchableOpacity>
+                  </LinearGradient>
                 </Card>
 
               )}
 
               <Card containerStyle={styles.card}>
-
-                <TouchableOpacity
-
+                <LinearGradient
+                  colors={['#fff265', '#ff5900', '#f5255d']}
                   style={styles.button}
-
-                  onPress={handleInputPress}
-
                 >
-
-                  <View style={styles.iconContainer}>
-
-                    <Icon
-
-                      name="edit"
-
-                      size={30}
-
-                      color="#E47B24"
-
-                      style={styles.icon}
-
-                    />
-
-                  </View>
-
-                  <Text style={styles.buttonText}>
-
-                    Entrer le code du ticket
-
-                  </Text>
-
-                </TouchableOpacity>
-
+                  <TouchableOpacity onPress={handleInputPress}>
+                    <View style={styles.buttonContent}>
+                      <View style={styles.iconContainer}>
+                        <Icon name="edit" size={20} color="#fff" style={styles.icon} />
+                      </View>
+                      <Text style={styles.buttonText}>Entrer le code du ticket</Text>
+                    </View>
+                    <View style={styles.dashedLine} />
+                  </TouchableOpacity>
+                </LinearGradient>
               </Card>
 
             </View>
@@ -406,18 +372,15 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: "column",
   },
-  button: {
-    padding: 10,
-    borderRadius: 2,
-    backgroundImage: {
+  backgroundImage: {
       flex: 1,
       width: "100%",
       height: "100%",
       resizeMode: "cover",
-    },
+  },
     button: {
       backgroundColor: "#FAF9F7",
-      padding: 5,
+      padding: 10,
       borderRadius: 5,
       marginHorizontal: 5,
       // backgroundImage: 'linear-gradient(135deg, #fff265, #ff5900, #f5255d)',
@@ -470,5 +433,4 @@ const styles = StyleSheet.create({
       shadowOpacity: 0.25,
       shadowRadius: 4,
     },
-  }
 });
