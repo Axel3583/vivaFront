@@ -36,6 +36,7 @@ export default function CameraScanner({ handleGoBack }) {
   }
 
   if (hasPermission === false) {
+
     return (
       <Text style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
         Pas d'accés à la caméra
@@ -44,54 +45,108 @@ export default function CameraScanner({ handleGoBack }) {
   }
 
   if (scanned) {
+
     if (scannedUrl) {
+
       return <WebView source={{ uri: scannedUrl }} />;
+
     } else {
+
       return (
+
         <View>
+
           <TouchableOpacity style={styles.button} onPress={handleScanAgain}>
+
             <Text style={styles.buttonText}>Scanner encore </Text>
+
           </TouchableOpacity>
+
           <TouchableOpacity style={styles.button} onPress={handleGoBack}>
+
             <Text style={styles.buttonText}>Retour</Text>
+
           </TouchableOpacity>
+
         </View>
+
       );
+
     }
+
   }
-return (
+
+
+
+  return (
+
     <View style={styles.container}>
+
       <Camera
+
         style={styles.camera}
+
         onBarCodeScanned={handleBarCodeScannedInternal}
+
       />
+
       <TouchableOpacity style={styles.button} onPress={handleGoBack}>
+
         <Text style={styles.buttonText}>Annuler</Text>
+
       </TouchableOpacity>
+
     </View>
+
   );
+
 }
 
+
+
+
 const styles = StyleSheet.create({
+
   container: {
+
     flex: 1,
+
     justifyContent: "center",
+
     alignItems: "center",
+
   },
+
   camera: {
+
     width: "80%",
+
     aspectRatio: 1,
+
   },
+
   button: {
+
     backgroundColor: "#BE2B3E",
+
     padding: 10,
+
     borderRadius: 5,
+
     marginTop: 10,
+
   },
+
   buttonText: {
+
     color: "#fff",
+
     fontWeight: "bold",
+
     textAlign: "center",
+
     fontFamily: "MuseoSans_500",
+
   },
+
 });

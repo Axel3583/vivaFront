@@ -1,11 +1,12 @@
-import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import HomeScreen from "./src/screens/homeScreen";
-import ScannerForm from "./src/screens/scanneScreen";
-import AppIntro from "./src/components/appIntroSlider";
-import * as Font from "expo-font";
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import HomeScreen from './src/screens/homeScreen';
+import ScannerForm from './src/screens/scanneScreen';
+import ProgramScreen from './src/screens/programScreen';
+import AppIntro from './src/components/appIntroSlider';
+import * as Font from 'expo-font';
 import {
   StyleSheet,
   ActivityIndicator,
@@ -18,6 +19,10 @@ import {
   SafeAreaProvider,
   initialWindowMetrics,
 } from "react-native-safe-area-context";
+import { FontAwesome } from '@expo/vector-icons';
+import PaperScreen from "./src/screens/paperScreen";
+import MessageScreen from "./src/screens/messageScreen";
+import { MaterialIcons } from '@expo/vector-icons';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -32,46 +37,81 @@ const isValidTicket = false;
 // //   this.setState({ isValidTicket: isValid });
 // // };
 
-function TabNavigator() {
+function TabNavigator({ isValidTicket, setValidTicket }) {
   return (
     <Tab.Navigator
       initialRouteName="Scanne"
-      activeColor="#f55e30"
-      inactiveColor="#3e2465"
-      barStyle={{ backgroundColor: "#FAF9F7" }}
+      activeColor="#ff0081"
+      inactiveColor="#5508a0"
+      barStyle={{ background: '#FAF9F7' }}
+          tabBarOptions={{
+        showLabel: true,
+        style: { height: 60 },
+      }}
     >
       <Tab.Screen
+        name="Ticket"
+        component={(props) => <ScannerForm {...props} setValidTicket={setValidTicket} />}
         options={{
-          tabBarLabel: "Ticket",
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="ticket" color={color} size={26} />
-          ),
+            <MaterialCommunityIcons name="book-open-page-variant" color={color} size={26} />),
         }}
-        name="Scanne"
-        component={ScannerForm}
       />
 
       {!isValidTicket ? (
+        <>
+          <Tab.Screen
+            name="Stands"
+            component={HomeScreen}
+            options={{
+              tabBarIcon: ({ color }) => (
+                <MaterialIcons name="assistant" size={27} color="black" />),
+            }}
+          />
+
         <Tab.Screen
           options={{
-            tabBarLabel: "Home",
+            tabBarLabel: 'Programme',
             tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="home" color={color} size={26} />
-            ),
+              <MaterialCommunityIcons name="book-open-page-variant" color={color} size={26} />),
           }}
-          name="Home"
-          component={HomeScreen}
+          name="Program"
+          component={ProgramScreen}
         />
+
+          <Tab.Screen
+            name="Cv"
+            component={PaperScreen}
+            options={{
+              tabBarIcon: ({ color }) => (
+                <FontAwesome name="paper-plane-o" size={27} color="black" />
+              ),
+            }}
+          />
+
+          <Tab.Screen
+            name="Assitance"
+            component={MessageScreen}
+            options={{
+              tabBarIcon: ({ color }) => (
+                <MaterialCommunityIcons name="message" color={color} size={27} />
+              ),
+            }}
+          />
+        </>
       ) : null}
     </Tab.Navigator>
   );
+
 }
+
 
 export default class App extends React.Component {
   state = {
     showIntro: true,
     isLoading: false,
     fontLoaded: false,
+    isValidTicket: false,
   };
 
   fetchFonts = () => {
@@ -103,6 +143,9 @@ export default class App extends React.Component {
     }, 2000);
   };
 
+  setValidTicket = (isValid) => {
+    this.setState({ isValidTicket: isValid });
+  };
   render() {
     const { showIntro, isLoading, fontLoaded } = this.state;
 
@@ -128,7 +171,7 @@ export default class App extends React.Component {
           ) : showIntro ? (
             <AppIntro handleDone={this.handleDone} />
           ) : (
-            <TabNavigator />
+            <TabNavigator setValidTicket={this.setValidTicket} isValidTicket={this.state.isValidTicket} />
           )}
         </SafeAreaProvider>
       </NavigationContainer>
