@@ -575,11 +575,14 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         paddingVertical: 5,
         backgroundColor: "#1d6ff7",
-        borderRadius: 20,
-        marginRight: 5,
+        borderRadius: 10,
+        marginRight: 20,
+        borderWidth: 1,
+        borderColor: "lightgray",
     },
     selectedButton: {
-        backgroundColor: "#1d71f724",
+        backgroundColor: "#1d6ff754",
+        color: "black",
     },
     buttonText: {
         fontWeight: "bold",
